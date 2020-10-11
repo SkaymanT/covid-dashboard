@@ -20,17 +20,28 @@ class Calculator {
   }
 
   appendNumber(number) {
+    if (this.currentOperand === 'error') {
+      this.clear();
+      return;
+    }
     if (number === '.' && this.currentOperand.includes('.')) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
   chooseOperation(operation) {
+    if (this.currentOperand === 'error') {
+      this.clear();
+      return;
+    }
     if (
       (operation === '-' || operation === '√') &&
-      this.currentOperand === '' &&
-      this.unaryOperation === undefined
+      this.currentOperand === ''
     ) {
-      this.unaryOperation = operation;
+      if (this.unaryOperation === undefined) {
+        this.unaryOperation = operation;
+      } else {
+        this.currentOperand = 'error';
+      }
       return;
     } else if (operation === '√') return;
     if (
