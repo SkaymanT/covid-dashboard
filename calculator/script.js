@@ -9,6 +9,7 @@ class Calculator {
   clear() {
     this.currentOperand = '';
     this.previousOperand = '';
+    this.numberSign = undefined;
     this.unaryOperation = undefined;
     this.operation = undefined;
     this.readyToReset = false;
@@ -20,33 +21,34 @@ class Calculator {
   }
 
   appendNumber(number) {
-    if (this.currentOperand === 'error') {
+    if (this.currentOperand === 'Negative number under the root') {
       this.clear();
-      return;
     }
     if (number === '.' && this.currentOperand.includes('.')) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand === 'error') {
+    if (this.currentOperand === 'Negative number under the root') {
       this.clear();
-      return;
     }
-    if (
-      (operation === '-' || operation === '√') &&
-      this.currentOperand === ''
-    ) {
-      if (this.unaryOperation === undefined) {
-        this.unaryOperation = operation;
-      } else {
-        this.currentOperand = 'error';
-      }
+    if (operation === '√' && this.currentOperand === '') {
+      this.unaryOperation = operation;
       return;
     } else if (operation === '√') return;
+
+    if (operation === '-' && this.currentOperand === '') {
+      if (this.unaryOperation === undefined) {
+        this.numberSign = operation;
+      } else {
+        this.currentOperand = 'Negative number under the root';
+      }
+      return;
+    }
+
     if (
       this.currentOperand !== '' &&
-      this.unaryOperation !== undefined &&
+      (this.unaryOperation !== undefined || this.numberSign !== undefined) &&
       this.previousOperand === ''
     ) {
       this.unaryCompute();
@@ -68,39 +70,35 @@ class Calculator {
     let computation;
     const current = parseFloat(this.currentOperand);
     if (isNaN(current)) return;
-    switch (this.unaryOperation) {
-      case '√': {
-        if (current > 0) {
-          computation = Math.sqrt(current);
-        } else {
-          computation = 'error';
-        }
-        break;
+    if (this.unaryOperation !== undefined) {
+      if (current > 0) {
+        computation = Math.sqrt(current);
+      } else {
+        computation = 'Negative number under the root';
       }
-      case '-':
-        {
-          if (this.unaryOperation !== undefined && this.currentOperand !== '') {
-            computation = -current;
-          } else {
-            computation = -current;
-          }
-        }
-        break;
-      default:
-        return;
     }
+    if (this.numberSign !== undefined) {
+      if (this.unaryOperation !== undefined) {
+        computation = -computation;
+      } else {
+        computation = -current;
+      }
+    }
+
     this.readyToReset = true;
     this.unaryOperation = undefined;
+    this.numberSign = undefined;
     this.currentOperand = computation;
   }
 
   compute() {
     let computation;
-    if (this.unaryOperation !== undefined) {
+    if (this.unaryOperation !== undefined || this.numberSign !== undefined) {
       this.unaryCompute();
     }
     const prev = parseFloat(this.previousOperand);
     const current = parseFloat(this.currentOperand);
+    console.log(prev, current);
     if (isNaN(prev) && isNaN(current)) return;
     switch (this.operation) {
       case '+':
@@ -116,24 +114,17 @@ class Calculator {
         computation = +(prev / current);
         break;
       case '^':
-        if (current >= 0) {
-          let bufComputation = 1;
-          for (let index = 0; index < current; index++) {
-            bufComputation = bufComputation * prev;
-          }
-          computation = bufComputation;
-        } else {
-          computation = 'Ошибка';
-        }
+        computation = Math.pow(prev, current);
+
         break;
       default:
         return;
     }
 
     this.readyToReset = true;
+    this.previousOperand = '';
     this.currentOperand = computation;
     this.operation = undefined;
-    this.previousOperand = '';
   }
 
   getDisplayNumber(number) {
@@ -162,15 +153,34 @@ class Calculator {
   }
 
   updateDisplay() {
-    if (this.currentOperand === 'error') {
+    if (this.currentOperand === 'Negative number under the root') {
       this.currentOperandTextElement.innerText = this.currentOperand;
+      this.previousOperandTextElement.innerText = this.previousOperand;
       return;
     }
-    if (this.unaryOperation !== undefined) {
+
+    if (this.numberSign !== undefined && this.unaryOperation !== undefined) {
+      this.currentOperandTextElement.innerText = `${this.numberSign}${
+        this.unaryOperation
+      }${this.getDisplayNumber(this.currentOperand)}`;
+    } else if (
+      this.numberSign === undefined &&
+      this.unaryOperation !== undefined
+    ) {
       this.currentOperandTextElement.innerText = `${
         this.unaryOperation
-      } ${this.getDisplayNumber(this.currentOperand)}`;
-    } else if (this.unaryOperation === undefined) {
+      }${this.getDisplayNumber(this.currentOperand)}`;
+    } else if (
+      this.numberSign !== undefined &&
+      this.unaryOperation === undefined
+    ) {
+      this.currentOperandTextElement.innerText = `${
+        this.numberSign
+      }${this.getDisplayNumber(this.currentOperand)}`;
+    } else if (
+      this.numberSign === undefined &&
+      this.unaryOperation === undefined
+    ) {
       this.currentOperandTextElement.innerText = this.getDisplayNumber(
         this.currentOperand
       );
