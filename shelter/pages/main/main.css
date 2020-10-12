@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.header {
+  width: 100vw;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100px;
+}
+
+/*# sourceMappingURL=main.css.map */
