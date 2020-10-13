@@ -1,0 +1,81 @@
+.button_primary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px 0px 0px 45px;
+  width: 207px;
+  height: 52px;
+  background: $color-primary;
+  border-radius: 100px;
+  border: 0;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+}
+
+.button_primary:hover {
+  cursor: pointer;
+  background: $color-primary-light;
+}
+
+.button_secondary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px 0px 0px 45px;
+  width: 207px;
+  height: 52px;
+
+  border: 2px solid #f1cdb3;
+  box-sizing: border-box;
+  border-radius: 100px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+
+  flex: none;
+  order: 0;
+  align-self: flex-start;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.button_secondary:hover {
+  cursor: pointer;
+  background: $color-primary-light;
+  border: 2px solid $color-primary-light;
+}
+
+.button_arrow {
+  width: 52px;
+  height: 52px;
+
+  border: 2px solid #f1cdb3;
+  box-sizing: border-box;
+  border-radius: 100px;
+  font-weight: 900;
+  font-size: 17px;
+}
+.button_arrow > img {
+  flex: none;
+  order: 0;
+  align-self: center;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.button_arrow:hover {
+  cursor: pointer;
+  background: $color-primary-light;
+  border: 2px solid $color-primary-light;
+}

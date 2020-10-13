@@ -8,14 +8,14 @@
   </head>
   <body>
     <header class="header">
-      <div class="wrapper">
+      <div class="wrapper header_wrapper">
         <div class="header__logo">
-          <div class="header-logo-title">Cozy House</div>
+          <div class="header__logo-title">Cozy House</div>
           <div class="header__logo-subtitle">Shelter for pets in Boston</div>
         </div>
         <div class="header__menu">
           <ul class="navigation">
-            <li class="navigation__item">
+            <li class="navigation__item active">
               <a class="navigation__item_link">About the shelter</a>
             </li>
             <li class="navigation__item">
@@ -32,7 +32,7 @@
       </div>
     </header>
     <section class="start-screen">
-      <div class="wrapper">
+      <div class="wrapper wrapper__start_screen">
         <div class="start-screen__content">
           <h2 class="start-screen__content_heading">
             Not only people need a house
@@ -42,7 +42,9 @@
             extremely wide and open heart. He or she will love you more than
             anybody else in the world, you will see!
           </p>
-          <button class="btn">Make a friend</button>
+          <button class="button_primary start-screen__content_button">
+            Make a friend
+          </button>
         </div>
         <div class="start-screen__puppy">
           <img src="/assets//images/start-screen-puppy.png" alt="puppy" />
@@ -78,7 +80,7 @@
         <h3 class="pets__heading">Our friends who are looking for a house</h3>
         <div class="pets__slider">
           <div class="pets__slider_prev">
-            <button class="prev"></button>
+            <button class="button_arrow"><img src="/assets/icons/arrow-prev.svg" alt="arrow"></button>
           </div>
           <div class="pets__slider_card">
             <img
@@ -113,7 +115,9 @@
               <button class="button_secondary">Learn more</button>
             </div>
           </div>
-          <div class="pets__slider_next"><button class="next"></button></div>
+          <div class="pets__slider_next">
+            <button class="button_arrow">&#8594</button>
+          </div>
         </div>
         <button class="pets__button">Get to know the rest</button>
       </div>

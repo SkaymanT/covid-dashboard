@@ -1,3 +1,58 @@
 .header {
-  width: 100vw;
+  width: 100%;
+  position: absolute;
+  top: 64px;
+
+  .header_wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header__logo {
+    display: flex;
+    flex-direction: column;
+
+    .header__logo-title {
+      color: $color-primary;
+      font-size: 3.2rem;
+      letter-spacing: 6%;
+      line-height: 110%;
+    }
+
+    .header__logo-subtitle {
+      font-family: Arial;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 15px;
+      color: $color-light-x1;
+    }
+  }
+
+  .header__menu {
+    width: 443px;
+    display: flex;
+    flex-direction: column;
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      list-style-type: none;
+    }
+
+    .navigation__item {
+      color: $color-dark-s;
+      font-family: Arial;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 160%;
+    }
+
+    .active {
+      color: $color-light-s;
+      border-bottom: solid 3px $color-primary;
+    }
+  }
 }
