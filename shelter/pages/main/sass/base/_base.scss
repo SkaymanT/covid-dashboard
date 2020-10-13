@@ -7,12 +7,7 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 10px;
-}
-
 body {
-  font-size: 1.6rem;
   font-family: Georgia;
 }
 
@@ -20,7 +15,7 @@ h2 {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 44px;
+  font-size: 2.75rem;
   line-height: 130%;
 }
 
@@ -28,9 +23,8 @@ h3 {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 35px;
+  font-size: 2.1875rem;
   line-height: 130%;
-  /* or 45px */
   letter-spacing: 0.06em;
 }
 
@@ -38,9 +32,8 @@ h4 {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 1, 25rem;
   line-height: 115%;
-  /* identical to box height, or 23px */
 
   letter-spacing: 0.06em;
 }
@@ -49,9 +42,8 @@ h5 {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 110%;
-  /* identical to box height, or 17px */
 
   letter-spacing: 0.06em;
 }
@@ -60,17 +52,15 @@ p {
   font-family: Arial;
   font-style: normal;
   font-weight: normal;
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 160%;
-  /* identical to box height, or 24px */
 }
 .p-s {
   font-family: Arial;
   font-style: italic;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 150%;
-  /* identical to box height, or 18px */
 
   color: #b2b2b2;
 }

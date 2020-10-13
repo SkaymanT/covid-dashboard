@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   position: absolute;
-  top: 64px;
+  top: 60px;
 
   .header_wrapper {
     display: flex;
@@ -14,25 +14,30 @@
 
     .header__logo-title {
       color: $color-primary;
-      font-size: 3.2rem;
-      letter-spacing: 6%;
+      font-family: Georgia;
+      font-size: 2rem;
+      letter-spacing: 0.12rem;
       line-height: 110%;
     }
 
     .header__logo-subtitle {
+      margin-top: 10px;
       font-family: Arial;
       font-style: normal;
       font-weight: normal;
-      font-size: 13px;
-      line-height: 15px;
+      font-size: 0.8125rem;
+      line-height: 110%;
+      letter-spacing: 0.085rem;
       color: $color-light-x1;
+      text-align: end;
     }
   }
 
   .header__menu {
-    width: 443px;
+    width: 27.68rem;
     display: flex;
     flex-direction: column;
+    align-self: center;
 
     .navigation {
       display: flex;
@@ -46,7 +51,7 @@
       font-family: Arial;
       font-style: normal;
       font-weight: normal;
-      font-size: 15px;
+      font-size: 0.94rem;
       line-height: 160%;
     }
 

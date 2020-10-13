@@ -1,0 +1,22 @@
+.about {
+  .wrapper__about {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 5rem 10.31rem 5.62rem 10.31rem;
+  }
+
+  .about__pets {
+    width: 400px;
+  }
+  .about__content_heading {
+    margin-top: 0.94rem;
+    margin-bottom: 1.5rem;
+    color: $color-dark-l;
+    width: 23.13rem;
+  }
+  .about__content_subheading {
+    width: 26.88rem;
+    margin-bottom: 1.56rem;
+  }
+}

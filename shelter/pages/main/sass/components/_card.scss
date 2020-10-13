@@ -1,0 +1,35 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 16.88rem;
+  height: 435px;
+  background: $color-light-s;
+
+  .card_image {
+    width: 16.88rem;
+  }
+
+  .card_name {
+    margin-top: 1.88rem;
+    margin-left: 2px;
+    color: $color-dark-l;
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 1.44rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.06em;
+  }
+  .card_button {
+    margin-top: 1.88rem;
+
+    .button_secondary {
+      width: 187px;
+    }
+  }
+}
