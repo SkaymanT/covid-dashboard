@@ -1,8 +1,66 @@
-.header {
-  width: 100vw;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.wrapper {
-  max-width: 1200px;
-  height: 100px;
+body {
+  font-family: Georgia;
+}
+
+h2 {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.75rem;
+  line-height: 130%;
+}
+
+h3 {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.1875rem;
+  line-height: 130%;
+  letter-spacing: 2.1px;
+}
+
+h4 {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.25rem;
+  line-height: 115%;
+
+  letter-spacing: 1.17px;
+}
+
+h5 {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.9375rem;
+  line-height: 110%;
+
+  letter-spacing: 0.06em;
+}
+
+p {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.9375rem;
+  line-height: 160%;
+}
+.p-s {
+  font-family: Arial;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 0.75rem;
+  line-height: 150%;
+
+  color: #b2b2b2;
 }

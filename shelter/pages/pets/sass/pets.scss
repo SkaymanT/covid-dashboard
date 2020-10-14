@@ -1,2 +1,12 @@
-@import 'base/base';
 @import 'abstract/constants';
+
+@import 'base/base';
+@import 'base/buttons';
+
+@import 'components/card';
+@import 'components/icon-card';
+
+@import 'layouts/wrapper';
+@import 'layouts/header';
+@import 'layouts/pets-layout';
+@import 'layouts/footer';

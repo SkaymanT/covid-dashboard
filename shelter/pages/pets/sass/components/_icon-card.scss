@@ -1,0 +1,20 @@
+.card-icon {
+  height: 113px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .card-icon_text {
+    margin-top: 30px;
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 115%;
+    color: $color-dark-l;
+    letter-spacing: 1.15px;
+  }
+  .card-icon_text:first-letter {
+    text-transform: uppercase;
+  }
+}
