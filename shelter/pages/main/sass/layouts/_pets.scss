@@ -5,6 +5,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 40px;
+
+    @media (max-width: 1279px) {
+      padding: 0 30px;
+    }
   }
 
   .pets__heading {
@@ -20,12 +25,34 @@
     margin-top: 3.71rem;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1279px) {
+      justify-content: space-between;
+    }
+  }
+
+  .pets__slider_card {
+    margin: 0px 45px;
+
+    @media (max-width: 1279px) {
+      margin: 0px 20px;
+    }
+  }
+
+  #woody {
+    @media (max-width: 1279px) {
+      display: none;
+    }
   }
 
   .pets__slider_prev {
     display: flex;
     align-items: center;
     margin-right: 8px;
+
+    @media (max-width: 1279px) {
+      margin-right: -8px;
+    }
   }
 
   .pets__slider_next {
@@ -33,13 +60,13 @@
     align-items: center;
     margin-left: 8px;
 
-    .button_arrow > img {
+    .button_arrow>img {
       transform: rotate(-180deg);
     }
-  }
 
-  .pets__slider_card {
-    margin: 0px 45px;
+    @media (max-width: 1279px) {
+      margin-left: -8px;
+    }
   }
 
   .pets__button {

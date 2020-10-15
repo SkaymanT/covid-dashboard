@@ -166,12 +166,9 @@ p {
   font-weight: normal;
   font-size: 1.25rem;
   line-height: 1.44rem;
-  display: flex;
-  align-items: center;
-  text-align: center;
   letter-spacing: 0.06em;
 }
-.card .card_name:first-letter {
+.card .card_name::first-letter {
   text-transform: uppercase;
 }
 .card .card_button {

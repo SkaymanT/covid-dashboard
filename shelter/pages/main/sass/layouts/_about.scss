@@ -1,20 +1,49 @@
 .about {
   .wrapper__about {
     width: 100%;
+    height: 588px;
     display: flex;
-    justify-content: space-around;
-    padding: 5rem 10.315rem 5.62rem 10.315rem;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 1279px) {
+      flex-direction: column-reverse;
+      justify-content: space-evenly;
+      height: 1048px;
+    }
+  }
+
+  @media (max-width: 1279px) {
+    align-self: center;
   }
 
   .about__pets {
-    width: 400px;
+    width: 420px;
+    height: 428px;
+
+    @media (max-width: 1279px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        padding-bottom: 50px;
+      }
+    }
   }
+
+  .about__content {
+    width: 430px;
+    height: 428px;
+  }
+
   .about__content_heading {
     margin-top: 0.94rem;
     margin-bottom: 1.5rem;
     color: $color-dark-l;
     width: 23.13rem;
   }
+
   .about__content_subheading {
     width: 26.875rem;
     margin-bottom: 1.56rem;

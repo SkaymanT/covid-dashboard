@@ -3,9 +3,20 @@
   background: url(/assets/images/noise_transparent.png),
     radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 
+  @media (max-width: 1279px) {
+    padding-top: 150px;
+  }
+
   .wrapper__start_screen {
     display: flex;
     justify-content: space-between;
+    padding: 0 40px;
+
+    @media (max-width: 1279px) {
+      padding: 0 30px;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .start-screen__content {
@@ -19,13 +30,32 @@
       max-width: 19.375rem;
       margin-bottom: 41px;
     }
+
     .start-screen__content_subheading {
       color: $color-dark-s;
       max-width: 28.75rem;
       margin-bottom: 41px;
     }
+
+    .start-screen__content_button {
+      @media (max-width: 1279px) {
+        align-self: center;
+        margin-top: 2px;
+      }
+    }
   }
+
   .start-screen__puppy {
     display: flex;
+
+    @media (max-width: 1279px) {
+      margin-top: 20px;
+      align-self: flex-end;
+
+      img {
+        width: 569px;
+        height: 593px;
+      }
+    }
   }
 }

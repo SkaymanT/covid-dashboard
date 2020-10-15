@@ -1,5 +1,4 @@
 .footer {
-  height: 350px;
   background: url(/assets/images/noise_transparent.png),
     radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 
@@ -8,33 +7,44 @@
     height: 350px;
     align-items: center;
     justify-content: space-between;
+    padding: 0 40px;
+
+    @media (max-width: 1279px) {
+      padding: 0 30px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      height: 639px;
+    }
   }
+
   .footer__contacts {
     display: flex;
     flex-direction: column;
     height: 234px;
     width: 279px;
-  }
-  .footer__contacts_title {
-    color: $color-light-x1;
-  }
 
-  .footer__contacts_email {
-    margin-top: 38px;
-    width: 251px;
-    color: $color-primary;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 
-  .footer__contacts_phone {
-    margin-top: 40px;
-    width: 239px;
-    display: flex;
-    color: $color-primary;
-    justify-content: space-between;
-    align-items: center;
+    .footer__contacts_title {
+      color: $color-light-x1;
+    }
+
+    .footer__contacts_email {
+      margin-top: 38px;
+      width: 251px;
+      color: $color-primary;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer__contacts_phone {
+      margin-top: 40px;
+      width: 239px;
+      display: flex;
+      color: $color-primary;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   .footer__location {
@@ -43,26 +53,27 @@
     height: 234px;
     width: 303px;
     padding-right: 1px;
-  }
 
-  .footer__location_title {
-    width: 279px;
-    color: $color-light-x1;
-  }
 
-  .footer__location_marker {
-    width: 302px;
-    height: 46px;
-    margin-top: 31px;
-    display: flex;
-    color: $color-primary;
-    justify-content: spac;
-    align-items: center;
-    justify-content: space-between;
+    .footer__location_title {
+      width: 279px;
+      color: $color-light-x1;
+    }
 
-    h4 {
-      width: 260px;
-      margin-top: 2px;
+    .footer__location_marker {
+      width: 302px;
+      height: 46px;
+      margin-top: 31px;
+      display: flex;
+      color: $color-primary;
+      justify-content: spac;
+      align-items: center;
+      justify-content: space-between;
+
+      h4 {
+        width: 260px;
+        margin-top: 2px;
+      }
     }
   }
 

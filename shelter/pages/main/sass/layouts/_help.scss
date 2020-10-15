@@ -1,6 +1,10 @@
 .help {
   height: 611px;
 
+  @media (max-width: 1279px) {
+    height: 779px;
+  }
+
   .help__wrapper {
     display: flex;
     flex-direction: column;
@@ -23,8 +27,19 @@
     margin-top: 4px;
     justify-content: center;
 
+    @media (max-width: 1279px) {
+      width: 700px;
+      height: 449px;
+    }
+
     .help__list_item {
       margin: 55px 60px 0 60px;
+
+      @media (max-width: 1279px) {
+        width: 170px;
+        height: 113px;
+        margin: 55px 30px 0 30px;
+      }
     }
   }
 }
