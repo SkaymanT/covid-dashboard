@@ -10,6 +10,10 @@
     @media (max-width: 1279px) {
       padding: 0 30px;
     }
+
+    @media (max-width: 767px) {
+      padding: 0 10px;
+    }
   }
 
   .pets__heading {
@@ -19,6 +23,12 @@
     display: flex;
     align-items: center;
     text-align: center;
+
+    @media (max-width: 767px) {
+      width: 286px;
+      margin: 42px 0px 0px 0px;
+      align-self: center;
+    }
   }
 
   .pets__slider {
@@ -29,43 +39,67 @@
     @media (max-width: 1279px) {
       justify-content: space-between;
     }
-  }
-
-  .pets__slider_card {
-    margin: 0px 45px;
-
-    @media (max-width: 1279px) {
-      margin: 0px 20px;
-    }
-  }
-
-  #woody {
-    @media (max-width: 1279px) {
-      display: none;
-    }
-  }
-
-  .pets__slider_prev {
-    display: flex;
-    align-items: center;
-    margin-right: 8px;
-
-    @media (max-width: 1279px) {
-      margin-right: -8px;
-    }
-  }
-
-  .pets__slider_next {
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-
-    .button_arrow>img {
-      transform: rotate(-180deg);
+    @media (max-width: 767px) {
+      margin-top: 42px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
     }
 
-    @media (max-width: 1279px) {
-      margin-left: -8px;
+    .pets__slider_card {
+      margin: 0px 45px;
+
+      @media (max-width: 1279px) {
+        margin: 0px 20px;
+      }
+
+      @media (max-width: 767px) {
+        margin: 0px 25px;
+        order: -1;
+      }
+    }
+
+    #woody {
+      @media (max-width: 1279px) {
+        display: none;
+      }
+    }
+
+    #jennifer {
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+
+    .pets__slider_prev {
+      display: flex;
+      align-items: center;
+      margin-right: 8px;
+
+      @media (max-width: 1279px) {
+        margin-right: -8px;
+      }
+
+      @media (max-width: 767px) {
+        margin: 20px 4px 0 0;
+      }
+    }
+
+    .pets__slider_next {
+      display: flex;
+      align-items: center;
+      margin-left: 8px;
+
+      .button_arrow > img {
+        transform: rotate(-180deg);
+      }
+
+      @media (max-width: 1279px) {
+        margin-left: -8px;
+      }
+      @media (max-width: 767px) {
+        margin: 20px 0 0 4px;
+      }
     }
   }
 
@@ -74,5 +108,12 @@
     margin-bottom: 6.25rem;
     margin-left: 1px;
     width: 16.3125rem;
+
+    @media (max-width: 767px) {
+      margin-top: 42px;
+      margin-bottom: 42px;
+      margin-left: 0px;
+      width: 16.3125rem;
+    }
   }
 }

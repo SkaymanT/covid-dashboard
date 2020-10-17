@@ -4,15 +4,21 @@
   flex-direction: column;
   align-items: center;
 
+  @media (max-width: 767px) {
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+  }
+
   .card-icon_text {
     margin-top: 30px;
-    font-family: Georgia;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 115%;
-    color: $color-dark-l;
-    letter-spacing: 1.15px;
+
+    @media (max-width: 767px) {
+      margin-top: 20px;
+      font-size: 15px;
+      line-height: 110%;
+      letter-spacing: 0.06em;
+    }
   }
   .card-icon_text:first-letter {
     text-transform: uppercase;

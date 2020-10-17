@@ -17,6 +17,10 @@
       flex-direction: column;
       align-items: center;
     }
+
+    @media (max-width: 767px) {
+      padding: 0 10px;
+    }
   }
 
   .start-screen__content {
@@ -25,10 +29,19 @@
     justify-content: center;
     padding-bottom: 80px;
 
+    @media (max-width: 767px) {
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
     .start-screen__content_heading {
       color: $color-light-x1;
       max-width: 19.375rem;
       margin-bottom: 41px;
+      @media (max-width: 767px) {
+        width: 200px;
+      }
     }
 
     .start-screen__content_subheading {
@@ -55,6 +68,16 @@
       img {
         width: 569px;
         height: 593px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      margin-top: 25px;
+      align-self: flex-end;
+
+      img {
+        width: 260px;
+        height: 271.17px;
       }
     }
   }

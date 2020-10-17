@@ -15,6 +15,13 @@
       justify-content: space-around;
       height: 639px;
     }
+
+    @media (max-width: 767px) {
+      padding: 0 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      height: 809px;
+    }
   }
 
   .footer__contacts {
@@ -23,6 +30,11 @@
     height: 234px;
     width: 279px;
 
+    @media (max-width: 767px) {
+      text-align: center;
+      margin-top: 20px;
+      align-items: center;
+    }
 
     .footer__contacts_title {
       color: $color-light-x1;
@@ -35,6 +47,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @media (max-width: 767px) {
+        h4 {
+          font-size: 20px;
+          line-height: 115%;
+
+          letter-spacing: 1.17px;
+        }
+      }
     }
 
     .footer__contacts_phone {
@@ -44,6 +64,14 @@
       color: $color-primary;
       justify-content: space-between;
       align-items: center;
+      @media (max-width: 767px) {
+        h4 {
+          font-size: 20px;
+          line-height: 115%;
+
+          letter-spacing: 1.17px;
+        }
+      }
     }
   }
 
@@ -54,10 +82,17 @@
     width: 303px;
     padding-right: 1px;
 
+    @media (max-width: 767px) {
+      margin-top: 0px;
+      align-items: center;
+    }
 
     .footer__location_title {
       width: 279px;
       color: $color-light-x1;
+      @media (max-width: 767px) {
+        text-align: center;
+      }
     }
 
     .footer__location_marker {
@@ -74,6 +109,16 @@
         width: 260px;
         margin-top: 2px;
       }
+
+      @media (max-width: 767px) {
+        margin-top: 36px;
+        h4 {
+          font-size: 20px;
+          line-height: 115%;
+
+          letter-spacing: 1.17px;
+        }
+      }
     }
   }
 
@@ -81,5 +126,11 @@
     display: flex;
     align-self: flex-end;
     align-items: flex-end;
+
+    @media (max-width: 767px) {
+      img {
+        width: 260px;
+      }
+    }
   }
 }
