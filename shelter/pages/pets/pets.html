@@ -14,27 +14,39 @@
           <div class="header__logo-subtitle">Shelter for pets in Boston</div>
         </div>
         <div class="header__menu">
-          <ul class="navigation">
-            <li class="navigation__item">
-              <a class="navigation__item_link">About the shelter</a>
-            </li>
-            <li class="navigation__item active">
-              <a class="navigation__item_link">Our pets</a>
-            </li>
-            <li class="navigation__item">
-              <a class="navigation__item_link">Help the shelter</a>
-            </li>
-            <li class="navigation__item">
-              <a class="navigation__item_link">Contacts</a>
-            </li>
-          </ul>
+          <div class="mobile-menu">
+            <input
+              type="checkbox"
+              id="checkbox"
+              class="mobile-menu__checkbox"
+            />
+            <label for="checkbox" class="mobile-menu__btn">
+              <div class="mobile-menu__icon"></div>
+            </label>
+          </div>
+          <div class="header__menu__container">
+            <ul class="navigation">
+              <li class="navigation__item active">
+                <a class="navigation__item_link">About the shelter</a>
+              </li>
+              <li class="navigation__item">
+                <a class="navigation__item_link">Our pets</a>
+              </li>
+              <li class="navigation__item">
+                <a class="navigation__item_link">Help the shelter</a>
+              </li>
+              <li class="navigation__item">
+                <a class="navigation__item_link">Contacts</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>
     <section class="pets">
       <div class="wrapper pets__wrapper">
         <h3 class="pets__heading">
-          Our friends who <br />
+          Our friends who <br/>
           are looking for a house
         </h3>
         <div class="pets__slider">
