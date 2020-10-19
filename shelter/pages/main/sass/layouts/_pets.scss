@@ -2,6 +2,7 @@
   background-color: $color-light-l;
 
   .pets__wrapper {
+    height: 877px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,6 +14,7 @@
 
     @media (max-width: 767px) {
       padding: 0 10px;
+      height: 791px;
     }
   }
 
@@ -41,6 +43,7 @@
     }
     @media (max-width: 767px) {
       margin-top: 42px;
+      width: 300px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
