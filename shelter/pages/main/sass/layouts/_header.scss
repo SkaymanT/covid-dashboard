@@ -10,6 +10,7 @@
   .header_wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0 40px;
 
     @media (max-width: 1279px) {
@@ -24,7 +25,6 @@
   .header__logo {
     display: flex;
     flex-direction: column;
-
 
     .header__logo-title {
       color: $color-primary;
@@ -44,47 +44,6 @@
       letter-spacing: 0.085rem;
       color: $color-light-x1;
       text-align: end;
-    }
-  }
-
-  .header__menu {
-    align-self: center;
-
-    @media (max-width: 767px) {
-      width: 30px;
-      margin-right: 45px;
-      align-self: flex-end;
-    }
-
-    &__container {
-      width: 27.68rem;
-      display: flex;
-      flex-direction: column;
-
-      .navigation {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        list-style-type: none;
-      }
-
-      .navigation__item {
-        color: $color-dark-s;
-        font-family: Arial;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 0.94rem;
-        line-height: 160%;
-      }
-
-      .active {
-        color: $color-light-s;
-        border-bottom: solid 3px $color-primary;
-      }
-
-      @media (max-width: 767px) {
-        display: none;
-      }
     }
   }
 }

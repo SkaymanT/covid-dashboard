@@ -373,6 +373,10 @@ p {
   font-size: 0.9375rem;
   line-height: 160%;
 }
+.header .header__menu__container .navigation__item_link {
+  color: #545454;
+  text-decoration: none;
+}
 .header .header__menu__container .navigation__item:hover {
   cursor: pointer;
   color: #292929;
