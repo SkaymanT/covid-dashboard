@@ -1,28 +1,40 @@
 export default function menuClickHandler() {
   document.querySelector('.header__menu').addEventListener('click', (event) => {
-    console.log('sss');
-    const el = event.target.closest('.menu__items__item');
-    if (el) {
-      const functionName = el.dataset.handler;
-      if (functionName === CURRENT_STATE.page) {
-        return;
-      }
-      if (functionName !== undefined) {
-        hideMain(true);
-        document.body.addEventListener(
-          'transitionend',
-          () => {
-            clearBodyClasses();
-            regenerateMainContainer();
-            menuHandlers[functionName](loginResponse);
-            CURRENT_STATE.page = functionName;
-            hideMain(false);
-          },
-          {
-            once: true,
-          }
-        );
-      }
+    changeHeaderLogo();
+
+    if (isBlurMenu(event)) {
+      closeMenu();
+    }
+    if (isClickOnMenuItem(event)) {
+      closeMenu();
     }
   });
 }
+
+const closeMenu = () => {
+  document.getElementById('menu__toggle').checked = false;
+  document.querySelector('.header__logo').classList.remove('open');
+};
+
+const isBlurMenu = (event) => {
+  return event.target.classList.contains('menu__container');
+};
+
+const changeHeaderLogo = () => {
+  let isChecked = document.getElementById('menu__toggle').checked;
+  if (isChecked) {
+    document.querySelector('.header_wrapper').classList.add('open_menu');
+  } else {
+    document.querySelector('.header_wrapper').classList.remove('open_menu');
+  }
+};
+
+const isClickOnMenuItem = (event) => {
+  if (event.target.classList.length != 0) {
+    const { classList, parentNode } = event.target;
+    return (
+      classList.length &&
+      (classList.contains('active') || parentNode.classList.contains('active'))
+    );
+  }
+};

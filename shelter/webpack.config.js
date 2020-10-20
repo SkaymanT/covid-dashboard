@@ -5,9 +5,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
-
 module.exports = (env, options) => {
   const isProduction = options.mode === 'production';
   const isDev = !isProduction;
@@ -37,15 +34,12 @@ module.exports = (env, options) => {
           },
         },
         {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
           test: /\.s[ac]ss$/i,
-          use: [
-            // Creates style nodes from JS strings
-            'style-loader',
-            // Translates CSS into CommonJS
-            'css-loader',
-            // Compiles Sass to CSS
-            'sass-loader',
-          ],
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
         {
           test: /\.(png|svg|jpe?g|gif)$/i,
@@ -74,7 +68,7 @@ module.exports = (env, options) => {
       }),
       new CopyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
       new MiniCssExtractPlugin({
-        ffilename: isDev ? '[name].css' : '[name].[hash].css',
+        filename: isDev ? '[name].css' : '[name].[hash].css',
         chunkFilename: '[id].css',
       }),
     ],
