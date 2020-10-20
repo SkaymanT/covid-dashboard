@@ -55,10 +55,6 @@ module.exports = (env, options) => {
             },
           ],
         },
-        // {
-        //   test: /\.html$/i,
-        //   loader: 'html-loader',
-        // },
       ],
     },
 
