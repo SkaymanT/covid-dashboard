@@ -1,26 +1,25 @@
 .slider {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  height: 435px;
+  width: 990px;
+
+  @media (max-width: 1279px) {
+    width: 580px;
+    // overflow: hidden;
+  }
+
+  @media (max-width: 767px) {
+    order: -1;
+    width: 270px;
+    overflow-x: hidden;
+  }
+
+  .slider_line {
+    display: flex;
+    position: absolute;
+    // width: 990px;
     height: 435px;
-    width: 990px;
-
-    @media (max-width: 1279px) {
-        width: 580px;
-        overflow: hidden;
-    }
-
-    @media (max-width: 767px) {
-        order: -1;
-        width: 270px;
-        overflow-x: hidden;
-    }
-
-    .slider_line {
-        display: flex;
-        position: absolute;
-        justify-content: space-between;
-        width: 990px;
-        height: 435px;
-
-    }
+    transition: all ease 1s;
+  }
 }
