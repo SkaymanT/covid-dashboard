@@ -48,6 +48,7 @@ h4 {
   line-height: 115%;
 
   letter-spacing: 1.17px;
+
   @media (max-width: 767px) {
     font-size: 15px;
     line-height: 110%;
@@ -78,6 +79,7 @@ p {
   font-size: 0.9375rem;
   line-height: 160%;
 }
+
 .p-s {
   font-family: Arial;
   font-style: italic;
@@ -86,4 +88,8 @@ p {
   line-height: 150%;
 
   color: #b2b2b2;
+}
+
+a {
+  text-decoration: none;
 }

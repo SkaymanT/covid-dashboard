@@ -7,6 +7,10 @@ export default function menuClickHandler() {
     }
     if (isClickOnMenuItem(event)) {
       closeMenu();
+      document.querySelector('.header').scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+      });
     }
   });
 }
@@ -31,7 +35,10 @@ const changeHeaderLogo = () => {
 
 const isClickOnMenuItem = (event) => {
   if (event.target.classList.length != 0) {
-    const { classList, parentNode } = event.target;
+    const {
+      classList,
+      parentNode
+    } = event.target;
     return (
       classList.length &&
       (classList.contains('active') || parentNode.classList.contains('active'))
