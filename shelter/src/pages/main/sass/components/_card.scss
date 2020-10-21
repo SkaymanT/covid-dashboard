@@ -4,7 +4,7 @@
   justify-content: start;
   align-items: center;
   width: 270px;
-  height: 27.19rem;
+  height: 453px;
   background: $color-light-s;
   border-radius: 9px;
 
@@ -26,9 +26,11 @@
     text-align: center;
     letter-spacing: 0.06em;
   }
+
   .card_name:first-letter {
     text-transform: uppercase;
   }
+
   .card_button {
     margin-top: 1.88rem;
 

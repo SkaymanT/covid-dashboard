@@ -1,93 +1,75 @@
 export default function sliderClickHandler() {
-  document.querySelector('.pets__slider').addEventListener('click', (event) => {
-    if (isClickOnNext(event)) {
-      console.log('next Slide');
-    }
-    if (isClickOnPrev(event)) {
-      console.log('prev Slide');
-    }
-  });
-  
-  document.querySelector('.pets__slider').addEventListener('click', (event) => {
-    if (isClickOnNext(event)) {
-      console.log('next Slide');
-    }
-    if (isClickOnPrev(event)) {
-      console.log('prev Slide');
-    }
-  });
+    document.querySelector('.pets__slider').addEventListener('click', (event) => {
+        if (isClickOnNext(event)) {
+            doLeft();
+        }
+        if (isClickOnPrev(event)) {
+            console.log('prev Slide');
+        }
+    });
+
+    // document.querySelector('.pets__slider').addEventListener('click', (event) => {
+    //     if (isClickOnNext(event)) {
+    //         console.log('next Slide');
+    //     }
+    //     if (isClickOnPrev(event)) {
+    //         console.log('prev Slide');
+    //     }
+    // });
 }
 
 const isClickOnNext = (event) => {
-  return (
-    event.target.classList.contains('pets__slider_next') ||
-    event.target.parentNode.classList.contains('pets__slider_next')
-  );
+    return (
+        event.target.classList.contains('pets__slider_next') ||
+        event.target.parentNode.classList.contains('pets__slider_next') ||
+        event.target.parentNode.parentNode.classList.contains('pets__slider_next')
+    );
 };
 
 const isClickOnPrev = (event) => {
-  return (
-    event.target.classList.contains('pets__slider_prev') ||
-    event.target.parentNode.classList.contains('pets__slider_prev')
-  );
+    return (
+        event.target.classList.contains('pets__slider_prev') ||
+        event.target.parentNode.classList.contains('pets__slider_prev') ||
+        event.target.parentNode.parentNode.classList.contains('pets__slider_prev')
+    );
 };
 
-// function changeCurrentSlide(n) {
-//   // функция изменяющая текущий слайд "карусель"
-//   currentSlide = (n + slides.length) % slides.length;
-// }
+const doLeft = () => {
+    if (window.innerWidth >= 1280) {
+        drawSlides(3);
+    } else if (window.innerWidth >= 768 && window.innerWidth < 1280) {
+        drawSlides(2);
 
-// function changeSlide(direction, n) {
-//   // функция появления следующего элемента
-//   isEnabled = false;
-//   slider.classList.add(direction);
-//   slides[currentSlide].classList.add('current'); //начало анимации на экране два слайда
-//   changeCurrentSlide(n + 1);
-//   slides[currentSlide].classList.add('next'); //начало анимации на экране два слайда
-//   slider.addEventListener('animationend', function () {
-//     slider.classList.remove(direction); // удаляем класс следующий, т.к. Анимация закончилась
-//     changeCurrentSlide(n);
-//     slides[currentSlide].classList.remove('current'); // удаляем класс следующий, т.к. Анимация закончилась
-//     slides[currentSlide].classList.remove('active_slide'); // удаляем класс следующий, т.к. Анимация закончилась
-//     changeCurrentSlide(n + 1);
-//     slides[currentSlide].classList.add('active_slide'); // объявляем след слайд актив
-//     slides[currentSlide].classList.remove('next'); // объявляем след слайд актив
-//     isEnabled = true;
-//   });
-// }
+    } else if (window.innerWidth >= 300 && window.innerWidth < 768) {
+        drawSlides(1);
+    }
 
-// function nextSlide(n) {
-//   //функция смены слайда право
-//   changeSlide('slider_right', n);
-//   if (n % 2 == 0) {
-//     document.querySelector('.main').classList.remove('red_slide');
-//     document.querySelector('.main').classList.add('blue_slide');
-//   } else {
-//     document.querySelector('.main').classList.remove('blue_slide');
-//     document.querySelector('.main').classList.add('red_slide');
-//   }
-// }
+};
 
-// function previousSlide(n) {
-//   //функция смены слайда право
-//   changeSlide('slider_left', n);
-//   if (n % 2 == 0) {
-//     document.querySelector('.main').classList.remove('red_slide');
-//     document.querySelector('.main').classList.add('blue_slide');
-//   } else {
-//     document.querySelector('.main').classList.remove('blue_slide');
-//     document.querySelector('.main').classList.add('red_slide');
-//   }
-// }
+const drawSlides = (count) => {
+    for (let index = 0; index < count; index++) {
+        const buf = createCard('testURL', 'testName');
+        buf.style.left = 280 + 'px';
+        document.querySelector('.slider').appendChild(buf);
+    }
+};
 
-// document.querySelector('.slider__prev').addEventListener('click', function () {
-//   if (isEnabled) {
-//     previousSlide(currentSlide);
-//   }
-// });
+const createCard = (url, name) => {
+    let card = document.createElement('div');
+    card.classList.add('pets__slider_card');
+    card.classList.add('card');
 
-// document.querySelector('.slider__next').addEventListener('click', function () {
-//   if (isEnabled) {
-//     nextSlide(currentSlide);
-//   }
-// });
+    let img = document.createElement('img');
+    img.classList.add('card_image');
+    img.src = url;
+    img.alt = name;
+    card.append(img);
+
+    let button = document.createElement('button');
+    button.classList.add('button_secondary');
+
+    card.append(button);
+
+    return card;
+
+}
