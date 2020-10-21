@@ -14,7 +14,7 @@
       flex-wrap: wrap;
       justify-content: space-around;
       height: 639px;
-      width: 800px;
+      width: 768px;
     }
 
     @media (max-width: 767px) {
@@ -143,10 +143,6 @@
     align-self: flex-end;
     align-items: flex-end;
     justify-content: center;
-
-    // @media (max-width: 1279px) {
-    //   width: 700px;
-    // }
 
     @media (max-width: 767px) {
       width: 260px;

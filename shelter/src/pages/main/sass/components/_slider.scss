@@ -1,17 +1,16 @@
 .slider {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
+  @media (max-width: 1279px) {
+    width: 580px;
+    overflow: hidden;
+    // justify-content: space-betweenc;
+  }
 
-    @media (max-width: 1279px) {
-        width: 580px;
-        overflow-x: hidden;
-        // justify-content: space-betweenc;
-    }
-
-    @media (max-width: 767px) {
-        order: -1;
-        width: 270px;
-        overflow-x: hidden;
-    }
+  @media (max-width: 767px) {
+    order: -1;
+    width: 270px;
+    overflow-x: hidden;
+  }
 }
