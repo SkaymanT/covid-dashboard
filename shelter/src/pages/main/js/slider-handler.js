@@ -1,22 +1,19 @@
-export default function sliderClickHandler() {
+import givePets from './service';
+import giveRandomArray from './random';
+let isEnabled = true;
+let pets = [];
+
+export default async function sliderClickHandler() {
+  pets = await givePets();
   document.querySelector('.slider_line').style.left = 0 + 'px';
   document.querySelector('.pets__slider').addEventListener('click', (event) => {
-    if (isClickOnNext(event)) {
-      doMove('next');
+    if (isClickOnNext(event) && isEnabled) {
+      changeSlide('next', document.querySelector('.slider_line'));
     }
-    if (isClickOnPrev(event)) {
-      doMove('prev');
+    if (isClickOnPrev(event) && isEnabled) {
+      changeSlide('prev', document.querySelector('.slider_line'));
     }
   });
-
-  // document.querySelector('.pets__slider').addEventListener('click', (event) => {
-  //     if (isClickOnNext(event)) {
-  //         console.log('next Slide');
-  //     }
-  //     if (isClickOnPrev(event)) {
-  //         console.log('prev Slide');
-  //     }
-  // });
 }
 
 const isClickOnNext = (event) => {
@@ -35,48 +32,76 @@ const isClickOnPrev = (event) => {
   );
 };
 
-const doMove = (direction) => {
-  let sign = direction === 'next' ? '-' : '+';
-  let offsetRight = 0;
-  let offsetLeft = 0;
+const changeSlide = (direction, showSlide) => {
+  isEnabled = false;
+  let widthSlide;
   if (window.innerWidth >= 1280) {
-    addSlide(direction, doSlides(3));
-    document.querySelector('.slider_line').style.left = sign + 310 * 3 + 'px';
+    widthSlide = 980;
+    addSlide(direction, widthSlide, createSlide(3));
+    let slidesAfterUpdate = document.querySelectorAll('.slider_line');
+    doMove(direction, widthSlide, slidesAfterUpdate);
   } else if (window.innerWidth >= 768 && window.innerWidth < 1280) {
-    addSlide(direction, doSlides(2));
-    document.querySelector('.slider_line').style.left = sign + 310 * 2 + 'px';
+    widthSlide = 620;
+    addSlide(direction, widthSlide, createSlide(3));
+    let slidesAfterUpdate = document.querySelectorAll('.slider_line');
+    doMove(direction, widthSlide, slidesAfterUpdate);
   } else if (window.innerWidth >= 300 && window.innerWidth < 768) {
-    addSlide(direction, doSlides(1));
-    document.querySelector('.slider_line').style.left = sign + 310 * 1 + 'px';
+    widthSlide = 310;
+    addSlide(direction, widthSlide, createSlide(3));
+    let slidesAfterUpdate = document.querySelectorAll('.slider_line');
+    doMove(direction, widthSlide, slidesAfterUpdate);
   }
 };
 
-const addSlide = (direction, slides) => {
+const doMove = (direction, widthSlide, slides) => {
   if (direction === 'next') {
-    slides.forEach((element) => {
-      document.querySelector('.slider_line').append(element);
-    });
+    setTimeout(() => {
+      slides.forEach((element, index) => {
+        element.style.left = index * widthSlide - widthSlide + 'px';
+      });
+      slides[0].addEventListener('transitionend', () => {
+        slides[0].remove();
+        isEnabled = true;
+      });
+    }, 1);
   } else if (direction === 'prev') {
-    slides.forEach((element) => {
-      document.querySelector('.slider_line').prepend(element);
-    });
+    setTimeout(() => {
+      slides.forEach((element, index) => {
+        element.style.left = index * widthSlide + 'px';
+      });
+      slides[1].addEventListener('transitionend', () => {
+        slides[1].remove();
+        isEnabled = true;
+      });
+    }, 1);
   }
 };
 
-const doSlides = (count) => {
-  let newSlides = [];
-  for (let index = 0; index < count; index++) {
-    // const buf = createCard('testURL', 'testName');
-    newSlides.push(createCard('testURL', 'testName'));
-    // document.querySelector('.slider_line').appendChild(buf);
+const addSlide = (direction, widthSlide, slide) => {
+  if (direction === 'next') {
+    slide.style.left = widthSlide + 'px';
+    document.querySelector('.slider').append(slide);
+  } else if (direction === 'prev') {
+    slide.style.left = -widthSlide + 'px';
+    document.querySelector('.slider').prepend(slide);
   }
-  return newSlides;
+};
+
+const createSlide = (countCardsOnSlide) => {
+  let newSlide = document.createElement('div');
+  newSlide.classList.add('slider_line');
+  let randomPets = doRandomPets(pets);
+  for (let index = 0; index < countCardsOnSlide; index++) {
+    newSlide.append(createCard(randomPets[index].img, randomPets[index].name));
+  }
+  return newSlide;
 };
 
 const createCard = (url, name) => {
   let card = document.createElement('div');
   card.classList.add('pets__slider_card');
   card.classList.add('card');
+  card.id = name;
 
   let img = document.createElement('img');
   img.classList.add('card_image');
@@ -84,10 +109,27 @@ const createCard = (url, name) => {
   img.alt = name;
   card.append(img);
 
+  let nameParagraph = document.createElement('p');
+  nameParagraph.classList.add('card_name');
+  nameParagraph.innerText = name;
+  card.append(nameParagraph);
+
+  let cardButton = document.createElement('div');
+  cardButton.classList.add('card_button');
+
   let button = document.createElement('button');
   button.classList.add('button_secondary');
-
-  card.append(button);
+  button.innerText = 'Learn more';
+  cardButton.append(button);
+  card.append(cardButton);
 
   return card;
+};
+
+const doRandomPets = (initArray) => {
+  let randomArrayNumber = giveRandomArray(3, 0, initArray.length - 1);
+  let randomArrayPets = randomArrayNumber.map((element) => {
+    return initArray[element];
+  });
+  return randomArrayPets;
 };
