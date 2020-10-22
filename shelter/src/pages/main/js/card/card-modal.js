@@ -1,4 +1,4 @@
-import Modal from '../modal/modal';
+import { Modal } from '../modal';
 
 export class CardModal extends Modal {
   constructor(classes, { name }) {
@@ -8,10 +8,11 @@ export class CardModal extends Modal {
 
   generateContentCardModal() {
     let content = super.createDomNode(this.modal, 'div', 'test');
+    console.log(this.name);
     return content;
   }
 
-  renderModal() {
+  renderCardModal() {
     let content = this.generateContentCardModal();
     super.createModal(content);
   }
