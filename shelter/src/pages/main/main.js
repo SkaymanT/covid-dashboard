@@ -1,7 +1,11 @@
-import menuClickHandler from './js/menu-handler';
-import sliderClickHandler from './js/slider-handler';
+import {
+  menuClickHandler,
+  sliderClickHandler,
+  addCardClickHandler,
+} from './js';
 
 window.onload = () => {
   menuClickHandler();
   sliderClickHandler();
+  addCardClickHandler();
 };

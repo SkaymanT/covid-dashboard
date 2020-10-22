@@ -1,9 +1,9 @@
-import givePets from './service';
-import giveRandomArray from './random';
+import givePets from '../common/service';
+import giveRandomArray from '../common/random';
 let isEnabled = true;
 let pets = [];
 
-export default async function sliderClickHandler() {
+export async function sliderClickHandler() {
   pets = await givePets();
   document.querySelector('.slider_line').style.left = 0 + 'px';
   document.querySelector('.pets__slider').addEventListener('click', (event) => {

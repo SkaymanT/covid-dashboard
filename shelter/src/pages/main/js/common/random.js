@@ -8,8 +8,6 @@ export default function giveRandomArray(count, min, max) {
       index++;
     }
   }
-  console.log(arrayRandom);
-
   return arrayRandom;
 }
 
