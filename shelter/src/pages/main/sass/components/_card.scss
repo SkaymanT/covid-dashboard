@@ -65,29 +65,81 @@
 }
 
 .card-modal-info {
-  width: 260px;
+  width: 350px;
+  margin: 50px 20px;
+
+  @media (max-width: 1279px) {
+    width: 260px;
+    margin: 10px 8px;
+  }
+  @media (max-width: 767px) {
+    width: 260px;
+    margin: 10px 8px;
+    text-align: center;
+  }
 }
 
 .info-title {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
+  font-size: 2.1875rem;
+  line-height: 130%;
+  letter-spacing: 2.1px;
 }
 
 .info-subtitle {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
+  margin-top: 10px;
+  @media (max-width: 1279px) {
+    margin-top: 10px;
+  }
+  @media (max-width: 767px) {
+    margin-top: 5px;
+    font-size: 1.25rem;
+    line-height: 115%;
+  }
 }
 
 .info-paragraph {
+  margin-top: 40px;
+  line-height: 115%;
+  @media (max-width: 1279px) {
+    margin-top: 20px;
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 115%;
+  }
+  @media (max-width: 767px) {
+    margin-top: 10px;
+    text-align: justify;
+  }
 }
 
 .info-list {
+  margin-top: 40px;
+  margin-left: 15px;
   li {
-    color: red; /* Цвет маркеров */
+    color: $color-primary;
   }
-  li span {
-    color: navy; /* Цвет текста */
+  li h5 {
+    font-weight: 800;
+    margin-top: 10px;
+    color: #000000;
+    span {
+      font-weight: 400;
+    }
+  }
+  @media (max-width: 1279px) {
+    margin-top: 20px;
+    margin-left: 15px;
+    li h5 {
+      margin-top: 5px;
+    }
+  }
+  @media (max-width: 767px) {
+    margin-top: 10px;
+    text-align: start;
+    li h5 {
+      margin-top: 5px;
+    }
   }
 }

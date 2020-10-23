@@ -37,17 +37,17 @@ const changeSlide = (direction, showSlide) => {
   let widthSlide;
   if (window.innerWidth >= 1280) {
     widthSlide = 980;
-    addSlide(direction, widthSlide, createSlide(3));
+    addSlide(direction, widthSlide, createSlide(3, showSlide));
     let slidesAfterUpdate = document.querySelectorAll('.slider_line');
     doMove(direction, widthSlide, slidesAfterUpdate);
   } else if (window.innerWidth >= 768 && window.innerWidth < 1280) {
     widthSlide = 620;
-    addSlide(direction, widthSlide, createSlide(3));
+    addSlide(direction, widthSlide, createSlide(3, showSlide));
     let slidesAfterUpdate = document.querySelectorAll('.slider_line');
     doMove(direction, widthSlide, slidesAfterUpdate);
   } else if (window.innerWidth >= 300 && window.innerWidth < 768) {
     widthSlide = 310;
-    addSlide(direction, widthSlide, createSlide(3));
+    addSlide(direction, widthSlide, createSlide(3, showSlide));
     let slidesAfterUpdate = document.querySelectorAll('.slider_line');
     doMove(direction, widthSlide, slidesAfterUpdate);
   }
@@ -87,10 +87,14 @@ const addSlide = (direction, widthSlide, slide) => {
   }
 };
 
-const createSlide = (countCardsOnSlide) => {
+const createSlide = (countCardsOnSlide, showSlide) => {
+  let prevPets = [];
+  for (let index = 0; index < showSlide.children.length; index++) {
+    prevPets.push(showSlide.children[index].id);
+  }
   let newSlide = document.createElement('div');
   newSlide.classList.add('slider_line');
-  let randomPets = doRandomPets(pets);
+  let randomPets = doRandomPets(pets, prevPets);
   for (let index = 0; index < countCardsOnSlide; index++) {
     newSlide.append(createCard(randomPets[index].img, randomPets[index].name));
   }
@@ -126,10 +130,24 @@ const createCard = (url, name) => {
   return card;
 };
 
-const doRandomPets = (initArray) => {
-  let randomArrayNumber = giveRandomArray(3, 0, initArray.length - 1);
+const doRandomPets = (initArray, prevArrayPets) => {
+  let randomArrayNumber = giveRandomArray(
+    convertNameToNumber(initArray, prevArrayPets),
+    3,
+    0,
+    initArray.length - 1
+  );
   let randomArrayPets = randomArrayNumber.map((element) => {
     return initArray[element];
   });
   return randomArrayPets;
+};
+
+const convertNameToNumber = (initArray, prevArrayPets) => {
+  let prevArrayNumbers = prevArrayPets.map((prevElement) => {
+    return initArray.findIndex(
+      (element) => element.name.toLowerCase() === prevElement.toLowerCase()
+    );
+  });
+  return prevArrayNumbers;
 };

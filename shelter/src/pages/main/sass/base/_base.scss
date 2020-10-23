@@ -11,6 +11,20 @@ body {
   font-family: Georgia;
 }
 
+h1 {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.75rem;
+  line-height: 130%;
+
+  @media (max-width: 767px) {
+    font-size: 1.5625rem;
+    line-height: 130%;
+    letter-spacing: 1.17px;
+  }
+}
+
 h2 {
   font-family: Georgia;
   font-style: normal;
@@ -67,7 +81,7 @@ h5 {
 
   @media (max-width: 767px) {
     font-size: 13px;
-    line-height: 160%;
+    line-height: 167%;
     letter-spacing: 0.07em;
   }
 }

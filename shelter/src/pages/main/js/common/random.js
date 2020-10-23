@@ -1,9 +1,12 @@
-export default function giveRandomArray(count, min, max) {
+export default function giveRandomArray(prevArrayNumbers, count, min, max) {
   let arrayRandom = [];
   let sessionNumber;
   for (let index = 0; index < count; ) {
     sessionNumber = randomInteger(min, max);
-    if (arrayRandom.find((item) => item === sessionNumber) === undefined) {
+    if (
+      arrayRandom.find((item) => item === sessionNumber) === undefined &&
+      prevArrayNumbers.find((item) => item === sessionNumber) === undefined
+    ) {
       arrayRandom.push(sessionNumber);
       index++;
     }

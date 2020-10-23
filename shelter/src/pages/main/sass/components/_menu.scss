@@ -76,7 +76,7 @@
         position: fixed;
         top: 0;
         left: 100%;
-
+        color: $color-light-s;
         width: 320px;
         height: 100%;
 
@@ -110,7 +110,7 @@
           font-size: 32px;
           line-height: 160%;
 
-          color: $color-light-s;
+          color: $color-dark-s;
 
           text-decoration: none;
 
@@ -118,15 +118,15 @@
         }
       }
 
+      &__item:hover {
+        cursor: pointer;
+        color: $color-light-s;
+      }
       &__item_link {
-        color: $color-dark-s;
+        color: inherit;
         text-decoration: none;
       }
 
-      &__item:hover {
-        cursor: pointer;
-        color: $color-dark-s;
-      }
       .active {
         color: $color-light-s;
         border-bottom: solid 3px $color-primary;

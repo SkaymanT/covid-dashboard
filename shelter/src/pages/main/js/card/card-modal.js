@@ -1,9 +1,30 @@
 import { Modal } from '../modal';
 
 export class CardModal extends Modal {
-  constructor(classes, { name }) {
+  constructor(
+    classes,
+    {
+      name,
+      img,
+      type,
+      breed,
+      description,
+      age,
+      inoculations,
+      diseases,
+      parasites,
+    }
+  ) {
     super(classes);
     this.name = name;
+    this.img = img;
+    this.breed = breed;
+    this.type = type;
+    this.description = description;
+    this.age = age;
+    this.inoculations = inoculations;
+    this.diseases = diseases;
+    this.parasites = parasites;
   }
 
   generateContentCardModal() {
@@ -14,8 +35,8 @@ export class CardModal extends Modal {
       'img',
       'card-modal-img'
     );
-    this.imgCardModal.src = './assets/images/about-pets.png';
-    this.imgCardModal.alt = 'test';
+    this.imgCardModal.src = this.img;
+    this.imgCardModal.alt = this.name;
 
     this.infoCardModal = super.createDomNode(
       this.infoCardModal,
@@ -24,27 +45,27 @@ export class CardModal extends Modal {
     );
 
     this.infoTitle = super.createDomNode(this.infoTitle, 'h3', 'info-title');
-    this.infoTitle.innerHTML = 'Jennifer';
+    this.infoTitle.innerHTML = this.name;
 
     this.infoSubtitle = super.createDomNode(
       this.infoSubtitle,
       'h4',
       'info-subtitle'
     );
-    this.infoSubtitle.innerHTML = 'Dog - Labrador';
+    this.infoSubtitle.innerHTML = `${this.type} - ${this.breed}`;
 
     this.infoParagraph = super.createDomNode(
       this.infoParagraph,
-      'div',
+      'h5',
       'info-paragraph'
     );
-    this.infoParagraph.innerHTML = `Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.`;
+    this.infoParagraph.innerHTML = this.description;
 
     this.infoList = super.createDomNode(this.infoList, 'ul', 'info-list');
-    this.infoList.innerHTML = `<li><h5>test<span>test</span></h5></li>
-    <li><h5>test</h5><span>test</span></li>
-    <li><h5>test</h5><span>test</span></li>
-    <li><h5>test</h5><span>test</span></li>`;
+    this.infoList.innerHTML = `<li><h5>Age: <span>${this.age}</span></h5></li>
+    <li><h5>Inoculations: <span>${this.inoculations}</span></h5></li>
+    <li><h5>Diseases: <span>${this.diseases}</span></h5></li>
+    <li><h5>Parasites: <span>${this.parasites}</span></h5></li>`;
 
     this.appendCardModalElement();
     return this.content;
