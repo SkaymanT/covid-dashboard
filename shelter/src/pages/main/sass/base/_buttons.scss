@@ -63,3 +63,27 @@
   background: $color-primary-light;
   border: 2px solid $color-primary-light;
 }
+
+.button_close {
+  position: absolute;
+  left: -10px;
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 2px solid #f1cdb3;
+  background: none;
+  border-radius: 100px;
+  font-size: 10px;
+
+  @media (max-width: 1279px) {
+    left: -10px;
+  }
+  @media (max-width: 767px) {
+    left: -25px;
+  }
+}
+
+.button_close:hover {
+  cursor: pointer;
+  background: $color-primary-light;
+  border: 2px solid $color-primary-light;
+}

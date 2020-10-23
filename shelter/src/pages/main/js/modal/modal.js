@@ -25,7 +25,8 @@ export class Modal {
       'div',
       'modal__close-icon'
     );
-    this.modalCloseBtn.innerText = 'x';
+    this.modalCloseBtn.innerHTML =
+      '<button class="button_close"><img src="./assets/icons/icon-close.svg" alt="close"></button>';
 
     this.setContent(content);
     this.appendModalElement();
@@ -50,9 +51,9 @@ export class Modal {
   }
 
   appendModalElement() {
-    this.modal.append(this.modalCloseBtn);
     this.modal.append(this.modalContent);
     this.overlay.append(this.modal);
+    this.overlay.append(this.modalCloseBtn);
   }
 
   bindEvents() {
@@ -66,7 +67,13 @@ export class Modal {
 
   closeModal(event) {
     let classes = event.target.classList;
-    if (classes.contains('overlay') || classes.contains('modal__close-icon')) {
+    if (
+      classes.contains('overlay') ||
+      (event.target.closest('.button_close') !== null &&
+        event.target
+          .closest('.button_close')
+          .classList.contains('button_close'))
+    ) {
       if (document.querySelector('.overlay') !== null) {
         document.querySelector('.overlay').remove();
       }

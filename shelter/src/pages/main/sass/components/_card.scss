@@ -44,3 +44,50 @@
   box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   cursor: pointer;
 }
+
+.card-modal-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-modal-img {
+  width: 500px;
+  height: 500px;
+
+  @media (max-width: 1279px) {
+    width: 350px;
+    height: 350px;
+  }
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.card-modal-info {
+  width: 260px;
+}
+
+.info-title {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-subtitle {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-paragraph {
+}
+
+.info-list {
+  li {
+    color: red; /* Цвет маркеров */
+  }
+  li span {
+    color: navy; /* Цвет текста */
+  }
+}

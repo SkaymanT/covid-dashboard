@@ -1,5 +1,5 @@
-import { CardModal } from './card-modal';
 import givePets from '../common/service';
+import { CardModal } from './card-modal';
 
 export async function addCardClickHandler() {
   let pets = await givePets();
