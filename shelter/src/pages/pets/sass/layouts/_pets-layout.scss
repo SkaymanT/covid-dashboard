@@ -1,5 +1,6 @@
 .pets {
   background-color: $color-light-l;
+  padding-top: 120px;
 
   .pets__wrapper {
     display: flex;
@@ -9,10 +10,12 @@
 
   @media (max-width: 1279px) {
     padding: 0 30px;
+    padding-top: 120px;
   }
 
   @media (max-width: 767px) {
     padding: 0 10px;
+    padding-top: 120px;
   }
 
   .pets__heading {
@@ -51,7 +54,7 @@
     }
     @media (max-width: 767px) {
       height: 1365px;
-      width: 270px;
+      width: 320px;
       margin-top: 12px;
       overflow: hidden;
       justify-content: space-evenly;
@@ -62,7 +65,7 @@
     margin-top: 30px;
 
     @media (max-width: 1279px) {
-      margin: 30px 0px 0px 0px;
+      margin: 0px 0px 30px 0px;
     }
   }
 

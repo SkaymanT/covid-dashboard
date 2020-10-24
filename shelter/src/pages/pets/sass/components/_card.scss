@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  width: 16.875rem;
-  height: 27.19rem;
+  width: 270px;
+  height: 435px;
   background: $color-light-s;
   border-radius: 9px;
 
@@ -21,10 +21,13 @@
     font-weight: normal;
     font-size: 1.25rem;
     line-height: 1.44rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
     letter-spacing: 0.06em;
   }
 
-  .card_name::first-letter {
+  .card_name:first-letter {
     text-transform: uppercase;
   }
 
@@ -39,4 +42,104 @@
 
 .card:hover {
   box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  cursor: pointer;
+}
+
+.card-modal-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-modal-img {
+  width: 500px;
+  height: 500px;
+
+  @media (max-width: 1279px) {
+    width: 350px;
+    height: 350px;
+  }
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.card-modal-info {
+  width: 350px;
+  margin: 50px 20px;
+
+  @media (max-width: 1279px) {
+    width: 260px;
+    margin: 10px 8px;
+  }
+  @media (max-width: 767px) {
+    width: 260px;
+    margin: 10px 8px;
+    text-align: center;
+  }
+}
+
+.info-title {
+  font-size: 2.1875rem;
+  line-height: 130%;
+  letter-spacing: 2.1px;
+}
+
+.info-subtitle {
+  margin-top: 10px;
+  @media (max-width: 1279px) {
+    margin-top: 10px;
+  }
+  @media (max-width: 767px) {
+    margin-top: 5px;
+    font-size: 1.25rem;
+    line-height: 115%;
+  }
+}
+
+.info-paragraph {
+  margin-top: 40px;
+  line-height: 115%;
+  @media (max-width: 1279px) {
+    margin-top: 20px;
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 115%;
+  }
+  @media (max-width: 767px) {
+    margin-top: 10px;
+    text-align: justify;
+  }
+}
+
+.info-list {
+  margin-top: 40px;
+  margin-left: 15px;
+  li {
+    color: $color-primary;
+  }
+  li h5 {
+    font-weight: 800;
+    margin-top: 10px;
+    color: #000000;
+    span {
+      font-weight: 400;
+    }
+  }
+  @media (max-width: 1279px) {
+    margin-top: 20px;
+    margin-left: 15px;
+    li h5 {
+      margin-top: 5px;
+    }
+  }
+  @media (max-width: 767px) {
+    margin-top: 10px;
+    text-align: start;
+    li h5 {
+      margin-top: 5px;
+    }
+  }
 }
