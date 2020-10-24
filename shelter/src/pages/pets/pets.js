@@ -6,5 +6,5 @@ import {
 
 window.onload = () => {
   menuClickHandler();
-  addCardClickHandler();
+  // addCardClickHandler();
 };

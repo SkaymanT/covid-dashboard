@@ -1,7 +1,8 @@
 import givePets from '../common/service';
 import { CardModal } from './card-modal';
+import { Card } from './card';
 
-export async function addCardClickHandler() {
+async function addCardClickHandler() {
   let pets = await givePets();
   document.querySelector('.pets__slider').addEventListener('click', (event) => {
     if (event.target.closest('.card_button')) {
@@ -13,7 +14,15 @@ export async function addCardClickHandler() {
 function getClickedData(pets, name) {
   return pets.find((pet) => pet.name.toLowerCase() === name.toLowerCase());
 }
+
 const generateCardModal = (data) => {
   let cardModal = new CardModal('modal', data);
   cardModal.renderCardModal();
 };
+
+const createCards = (data) => {
+  let card = new Card();
+  card.createCard();
+};
+
+export { addCardClickHandler, createCards };
