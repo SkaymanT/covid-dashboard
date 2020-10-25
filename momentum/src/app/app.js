@@ -32,7 +32,6 @@ const daysOfTheWeek = [
   'Saturday',
 ];
 
-// showtime
 let hours = null;
 let counter = null;
 
@@ -59,7 +58,6 @@ function showTime() {
   setTimeout(showTime, 1000);
 }
 
-// add zero and transform to string
 function addZero(int) {
   if (int < 10) int = '0' + int.toString();
   else int = int.toString();
@@ -89,7 +87,6 @@ const timesOfTheDayObject = {
   evening: randomArray(),
 };
 
-// set background image
 function setBackground(value) {
   if (value == undefined) counter = hours;
   let mod = timesOfTheDayArray[Math.floor((counter % 24) / 6)];
@@ -101,7 +98,6 @@ function setBackground(value) {
   img.onload = () => (wrapper.style.backgroundImage = `url(${src})`);
 }
 
-// set greeting
 function setGreeting() {
   let greet = timesOfTheDayArray[Math.floor(hours / 6) % 4];
   greeting.innerHTML = `Good ${greet}, `;
@@ -111,7 +107,6 @@ function refreshValue(event) {
   event.target.innerText = '';
 }
 
-// set value
 function setValue(event) {
   let target = event.target;
   if (event.type === 'keypress') {
@@ -143,7 +138,6 @@ function setValue(event) {
   }
 }
 
-// get name
 function getName() {
   let loc = localStorage.getItem('name');
   if (loc == null || loc.toString().trim() === '')
@@ -151,7 +145,6 @@ function getName() {
   else name.innerText = loc;
 }
 
-// focus
 function getFocus() {
   let loc = localStorage.getItem('focusEnter');
   if (loc == null || loc.toString().trim() === '')
@@ -159,7 +152,6 @@ function getFocus() {
   else focusEnter.innerText = localStorage.getItem('focusEnter');
 }
 
-// change background
 let iconBackground = document.querySelector('.icon__change_background');
 let iconBackgroundImg = document.querySelector('.icon__change_background_img');
 
