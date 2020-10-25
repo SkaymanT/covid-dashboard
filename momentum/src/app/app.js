@@ -78,12 +78,12 @@ function randomArray(lengthRequired = 6, quantityOfImages = 20) {
   return arr;
 }
 
-const timesOfTheDayArray = ['night', 'morning', 'afternoon', 'evening'];
+const timesOfTheDayArray = ['night', 'morning', 'day', 'evening'];
 
 const timesOfTheDayObject = {
   night: randomArray(),
   morning: randomArray(),
-  afternoon: randomArray(),
+  day: randomArray(),
   evening: randomArray(),
 };
 
