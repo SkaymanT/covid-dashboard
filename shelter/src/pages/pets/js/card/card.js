@@ -1,13 +1,8 @@
 export class Card {
   constructor() {}
 
-  createCard(url, name) {
-    this.card = this.createDomNode(
-      this.card,
-      'div',
-      'pets__slider_card',
-      'card'
-    );
+  createCard(url, name, classes) {
+    this.card = this.createDomNode(this.card, 'div', 'card', classes);
     this.card.id = name;
 
     this.img = this.createDomNode(this.img, 'img', 'card_image');
@@ -26,18 +21,12 @@ export class Card {
     this.button = this.createDomNode(this.button, 'button', 'button_secondary');
     this.button.innerText = 'Learn more';
 
-    appendCardElement();
-    bindEvents();
-    return card;
-  }
-
-  bindEvents() {
-    this.modalCloseBtn.addEventListener('click', this.closeModal);
-    this.overlay.addEventListener('click', this.closeModal);
+    this.appendCardElement();
+    return this.card;
   }
 
   appendCardElement() {
-    this.card.append(img);
+    this.card.append(this.img);
     this.card.append(this.nameParagraph);
     this.card.append(this.cardButton);
     this.cardButton.append(this.button);

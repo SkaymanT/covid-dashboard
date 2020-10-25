@@ -2,7 +2,7 @@
   background-color: $color-light-l;
   padding-top: 120px;
 
-  .pets__wrapper {
+  &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +18,7 @@
     padding-top: 120px;
   }
 
-  .pets__heading {
+  &__heading {
     margin: 80px 0px 0px 2px;
     color: $color-dark-l;
     width: 25rem;
@@ -37,77 +37,97 @@
       text-align: center;
     }
   }
-
-  .pets__slider {
-    margin-top: 30px;
+  .pets__pagination {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    overflow-y: hidden;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pets__pagination-box_show {
+    position: relative;
+    overflow: hidden;
+    width: 1200px;
+    height: 930px;
+    margin-top: 30px;
 
     @media (max-width: 1279px) {
       height: 1365px;
       width: 662px;
-      margin-top: 0px;
+      margin-top: 30px;
       overflow: hidden;
+    }
+
+    @media (max-width: 767px) {
+      margin-top: 42px;
+      padding-left: 8px;
+      width: 300px;
+      margin-top: 12px;
+      text-align: center;
+    }
+  }
+
+  .pets__pagination-box {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media (max-width: 1279px) {
+      width: 662px;
       justify-content: space-evenly;
     }
     @media (max-width: 767px) {
-      height: 1365px;
-      width: 320px;
-      margin-top: 12px;
-      overflow: hidden;
-      justify-content: space-evenly;
+      width: 300px;
+    }
+
+    &_card {
+      margin-top: 30px;
+
+      @media (max-width: 1279px) {
+        margin: 0px 0px 30px 0px;
+      }
     }
   }
 
-  .pets__slider_card {
-    margin-top: 30px;
-
-    @media (max-width: 1279px) {
-      margin: 0px 0px 30px 0px;
-    }
-  }
-
-  .pets__button {
+  &__button {
     margin-top: 3.75rem;
     margin-bottom: 6.25rem;
     margin-left: 1px;
     width: 16.3125rem;
   }
 
-  .pets__slider-controls {
+  &__pagination-controls {
     margin: 60px 0px 100px 0px;
     width: 340px;
     display: flex;
     justify-content: space-between;
 
     @media (max-width: 1279px) {
-      margin: 70px 0px 76px 0px;
+      margin: 40px 0px 76px 0px;
     }
     @media (max-width: 767px) {
       width: 300px;
       margin: 72px 0px 43px 0px;
     }
 
-    .pets__slider_long-prev {
+    &_long-prev {
       display: flex;
       align-items: center;
     }
-    .pets__slider_prev {
+    &_prev {
       display: flex;
       align-items: center;
     }
-    .pets__slider_number button {
+    &_number button {
       font-family: Georgia;
       font-style: normal;
       font-weight: normal;
     }
-    .pets__slider_next {
+    &_next {
       display: flex;
       align-items: center;
     }
-    .pets__slider_long-next {
+    &_long-next {
       display: flex;
       align-items: center;
     }

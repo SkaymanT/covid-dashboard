@@ -1,1 +1,0 @@
-export { sliderClickHandler } from './slider';

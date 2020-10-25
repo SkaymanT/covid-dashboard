@@ -1,10 +1,11 @@
 import {
   menuClickHandler,
-  sliderClickHandler,
   addCardClickHandler,
+  addPaginationClickHandler,
 } from './js';
 
 window.onload = () => {
   menuClickHandler();
-  // addCardClickHandler();
+  addPaginationClickHandler();
+  addCardClickHandler();
 };
