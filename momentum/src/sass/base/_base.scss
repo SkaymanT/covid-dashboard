@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-size: cover;
+  color: #000000;
+  text-shadow: -1px -1px 3px #000, 1px 1px 3px #000, 1px -1px 3px #000,
+    -1px 1px 3px #000;
+}
+
+h1 {
+  margin: 0 20px 3rem 20px;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+  @media (max-width: 540px) {
+    font-size: 20px;
+    margin: 0 10px 0 10px;
+  }
+}

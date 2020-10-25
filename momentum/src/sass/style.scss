@@ -1,0 +1,31 @@
+@import 'base/base';
+
+@import 'components/time';
+@import 'components/quote';
+@import 'components/weather';
+@import 'components/background';
+
+#root {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+  min-height: 740px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  color: #fff;
+  background-size: cover;
+  background-position: center top;
+  transition: background-image 0.8s ease-in-out;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

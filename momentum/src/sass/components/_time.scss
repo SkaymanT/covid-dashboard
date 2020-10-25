@@ -1,0 +1,19 @@
+.date {
+  position: relative;
+  font-size: 2.5rem;
+}
+
+.time {
+  font-size: 7rem;
+  @media (max-width: 768px) {
+    font-size: 5rem;
+  }
+  @media (max-width: 540px) {
+    font-size: 52px;
+  }
+}
+
+.name,
+.focus {
+  display: inline-block;
+}
