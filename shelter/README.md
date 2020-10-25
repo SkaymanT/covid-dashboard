@@ -1,5 +1,3 @@
-## Ctrl + Alt - Change Language;
-
-### [virtual-keyboard](https://skaymant-virtual-keyboard.netlify.app/
+### [shelter](https://rolling-scopes-school.github.io/skaymant-JS2020Q3/shelter/main.html)
 
 
