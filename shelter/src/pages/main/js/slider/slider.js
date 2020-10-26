@@ -1,5 +1,4 @@
-import givePets from '../common/service';
-import giveRandomArray from '../common/random';
+import { givePets, giveRandomArray } from '../common';
 let isEnabled = true;
 let pets = [];
 

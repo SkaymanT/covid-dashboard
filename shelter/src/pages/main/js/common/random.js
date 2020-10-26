@@ -1,4 +1,4 @@
-export default function giveRandomArray(prevArrayNumbers, count, min, max) {
+export function giveRandomArray(prevArrayNumbers, count, min, max) {
   let arrayRandom = [];
   let sessionNumber;
   for (let index = 0; index < count; ) {

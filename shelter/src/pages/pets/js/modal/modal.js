@@ -1,3 +1,5 @@
+import { dontScroll, doScroll } from '../common';
+
 export class Modal {
   constructor(classes) {
     this.classes = classes;
@@ -57,15 +59,20 @@ export class Modal {
   }
 
   bindEvents() {
-    this.modalCloseBtn.addEventListener('click', this.closeModal);
-    this.overlay.addEventListener('click', this.closeModal);
+    this.modalCloseBtn.addEventListener('click', (event) =>
+      this.handlerCloseModal(event)
+    );
+    this.overlay.addEventListener('click', (event) =>
+      this.handlerCloseModal(event)
+    );
   }
 
   openModal() {
     document.body.append(this.overlay);
+    dontScroll();
   }
 
-  closeModal(event) {
+  handlerCloseModal(event) {
     let classes = event.target.classList;
     if (
       classes.contains('overlay') ||
@@ -75,8 +82,12 @@ export class Modal {
           .classList.contains('button_close'))
     ) {
       if (document.querySelector('.overlay') !== null) {
-        document.querySelector('.overlay').remove();
+        this.closeModal();
       }
     }
+  }
+  closeModal() {
+    document.querySelector('.overlay').remove();
+    doScroll();
   }
 }

@@ -1,3 +1,3 @@
-export { menuClickHandler } from './menu/menu-handler';
+export { menuClickHandler } from './menu';
 export { sliderClickHandler } from './slider';
 export { addCardClickHandler } from './card';

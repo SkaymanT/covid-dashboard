@@ -7,10 +7,11 @@ async function addCardClickHandler() {
   document
     .querySelector('.pets__pagination')
     .addEventListener('click', (event) => {
-      if (event.target.closest('.card_button')) {
+      if (event.target.closest('.card')) {
         generateCardModal(
           getClickedData(pets, event.target.closest('.card').id)
         );
+        event.target.closest('.card').classList.add('active-card');
       }
     });
 }

@@ -30,7 +30,6 @@ function generateFullPetsList(pets, multiplier) {
       newPets.push(randomElement);
     }
   }
-  console.log(fullPetsList);
   return sort863(fullPetsList);
 }
 

@@ -66,9 +66,15 @@ export class CardModal extends Modal {
     <li><h5>Inoculations: <span>${this.inoculations}</span></h5></li>
     <li><h5>Diseases: <span>${this.diseases}</span></h5></li>
     <li><h5>Parasites: <span>${this.parasites}</span></h5></li>`;
-
     this.appendCardModalElement();
     return this.content;
+  }
+
+  closeModal() {
+    super.closeModal();
+    document.querySelectorAll('.card').forEach((element) => {
+      element.classList.remove('active-card');
+    });
   }
 
   appendCardModalElement() {

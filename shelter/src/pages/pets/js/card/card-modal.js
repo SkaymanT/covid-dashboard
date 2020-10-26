@@ -71,6 +71,13 @@ export class CardModal extends Modal {
     return this.content;
   }
 
+  closeModal() {
+    super.closeModal();
+    document.querySelectorAll('.card').forEach((element) => {
+      element.classList.remove('active-card');
+    });
+  }
+
   appendCardModalElement() {
     this.content.append(this.imgCardModal);
     this.content.append(this.infoCardModal);

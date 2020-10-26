@@ -1,3 +1,4 @@
+import { dontScroll, doScroll } from '../common';
 export function menuClickHandler() {
   document.querySelector('.header__menu').addEventListener('click', (event) => {
     changeHeaderLogo();
@@ -28,8 +29,10 @@ const changeHeaderLogo = () => {
   let isChecked = document.getElementById('menu__toggle').checked;
   if (isChecked) {
     document.querySelector('.header_wrapper').classList.add('open_menu');
+    dontScroll();
   } else {
     document.querySelector('.header_wrapper').classList.remove('open_menu');
+    doScroll();
   }
 };
 

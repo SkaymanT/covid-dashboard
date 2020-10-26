@@ -68,6 +68,10 @@
   border: 2px solid $color-primary;
 }
 
+.button_paginator.active-pagination:hover {
+  cursor: default;
+}
+
 .button_paginator.inactive:hover {
   cursor: default;
   background: none;

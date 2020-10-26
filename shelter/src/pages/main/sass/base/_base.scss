@@ -11,6 +11,10 @@ body {
   font-family: Georgia;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 h1 {
   font-family: Georgia;
   font-style: normal;
