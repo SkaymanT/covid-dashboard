@@ -25,9 +25,9 @@ async function getWeather() {
     response.status === 501
   ) {
     if (response.status === 400) {
-      console.error('Invalid location');
+      alert('Invalid location');
     } else {
-      console.error(
+      alert(
         `Bad connection with weather server. Error code: ${response.status}`
       );
     }
