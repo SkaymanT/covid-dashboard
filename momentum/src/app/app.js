@@ -1,4 +1,4 @@
-import { getWeather } from './weather';
+import { getWeather, getLocation } from './weather';
 
 let wrapper = document.querySelector('#root');
 let date = document.querySelector('.date');
