@@ -138,18 +138,18 @@ function setValue(event) {
   }
 }
 
-function getName() {
-  let loc = localStorage.getItem('name');
-  if (loc == null || loc.toString().trim() === '')
-    name.innerText = '[Enter name]';
-  else name.innerText = loc;
-}
-
 function getFocus() {
   let loc = localStorage.getItem('focusEnter');
   if (loc == null || loc.toString().trim() === '')
     focusEnter.innerText = '[Enter focus]';
   else focusEnter.innerText = localStorage.getItem('focusEnter');
+}
+
+function getName() {
+  let loc = localStorage.getItem('name');
+  if (loc == null || loc.toString().trim() === '')
+    name.innerText = '[Enter name]';
+  else name.innerText = loc;
 }
 
 let iconBackground = document.querySelector('.icon__change_background');
