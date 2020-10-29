@@ -12,6 +12,12 @@
 
 .overlay:hover {
   cursor: pointer;
+
+  .modal:not(:hover) ~ .modal__close-icon > .button_close {
+    cursor: pointer;
+    background: $color-primary-light;
+    border: 2px solid $color-primary-light;
+  }
 }
 
 .modal {
