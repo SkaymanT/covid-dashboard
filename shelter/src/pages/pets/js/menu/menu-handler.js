@@ -1,4 +1,5 @@
 import { dontScroll, doScroll } from '../common';
+
 export function menuClickHandler() {
   document.querySelector('.header__menu').addEventListener('click', (event) => {
     changeHeaderLogo();
@@ -8,8 +9,8 @@ export function menuClickHandler() {
     }
     if (isClickOnMenuItem(event)) {
       closeMenu();
-      document.querySelector('.pets').scrollIntoView({
-        block: 'start',
+      document.querySelector('.header').scrollIntoView({
+        block: 'center',
         behavior: 'smooth',
       });
     }
@@ -19,6 +20,7 @@ export function menuClickHandler() {
 const closeMenu = () => {
   document.getElementById('menu__toggle').checked = false;
   document.querySelector('.header_wrapper').classList.remove('open_menu');
+  doScroll();
 };
 
 const isBlurMenu = (event) => {
