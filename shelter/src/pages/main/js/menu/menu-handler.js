@@ -20,6 +20,7 @@ export function menuClickHandler() {
 const closeMenu = () => {
   document.getElementById('menu__toggle').checked = false;
   document.querySelector('.header_wrapper').classList.remove('open_menu');
+  doScroll();
 };
 
 const isBlurMenu = (event) => {
