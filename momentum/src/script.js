@@ -11,6 +11,8 @@ import {
 } from './app';
 
 window.onload = () => {
+  getLocation();
+  getWeather();
   showTime();
   setBackground();
   setGreeting();
@@ -18,6 +20,4 @@ window.onload = () => {
   getFocus();
   qouteClickHandler();
   getQuote();
-  getLocation();
-  getWeather();
 };

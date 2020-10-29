@@ -35,6 +35,7 @@ async function getWeather() {
     wind.innerText = '';
     humidity.innerText = '';
     condition.innerText = '';
+    weatherIcon.innerHTML = '';
     return;
   }
 
