@@ -1,0 +1,166 @@
+.game-editor {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+  border: solid 10px rgba(0, 0, 0, 0.35);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  height: 385x;
+
+  * {
+    font-size: 14px;
+    line-height: 150%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .input-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: rgba(87, 87, 87, 0.404);
+    height: 44px;
+  }
+
+  .css-view {
+    padding: 10px 10px 10px 46px;
+    position: relative;
+    min-height: 324px;
+    background: white;
+    color: #aaa;
+
+    .line-numbers {
+      color: #999;
+      background: #ddd;
+    }
+  }
+
+  .file-window {
+    padding: 10px 5px 10px 30px;
+    position: relative;
+    min-height: 324px;
+    background: #efecf4;
+  }
+
+  .line-numbers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 10px;
+    text-align: right;
+  }
+
+  .markup {
+    div {
+      padding-left: 15px;
+    }
+
+    .hover-active * {
+      color: rgb(6, 216, 16);
+    }
+
+    .hover-active:hover {
+      cursor: pointer;
+    }
+  }
+
+  input {
+    color: #333;
+    border: none;
+    width: calc(100% - 44px);
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: #555;
+  }
+
+  .input-animation {
+    background: rgba(62, 255, 88, 0.3);
+    animation: input 0.5s infinite;
+    -webkit-animation: input 0.5s infinite;
+    -moz-animation: input 0.5s infinite;
+  }
+}
+
+
+.game-editor>input:focus {
+  outline: none;
+  border-color: #555;
+}
+
+.editor-pane {
+  float: left;
+  width: 50%;
+}
+
+.html-view {
+  float: left;
+  width: 50%;
+
+  .line-numbers {
+    color: #666;
+    border-right: solid 1px #333;
+  }
+}
+
+.succes {
+  animation: succes 0.2s 1;
+}
+
+@keyframes succes {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.error {
+  animation: error 0.1s 3;
+}
+
+@keyframes error {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(3px);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
+}
+
+@keyframes input {
+  50% {
+    background: none;
+  }
+}
+
+@-webkit-keyframes input {
+  50% {
+    background: none;
+  }
+}
+
+@-moz-keyframes input {
+  50% {
+    background: none;
+  }
+}

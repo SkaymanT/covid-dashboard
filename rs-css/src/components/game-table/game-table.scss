@@ -1,0 +1,183 @@
+.game-table {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0px auto 0px auto;
+  min-height: 142px;
+  padding: 15px;
+  margin: 15px;
+  background-color: rgb(94, 94, 94);
+  transition-duration: 0.35s;
+
+  .plate {
+    border: solid 2px #ddd;
+    background: white;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+    position: relative;
+  }
+
+  .bento {
+    height: 100px;
+    width: 100px;
+    background: brown;
+    position: relative;
+    margin: 0 10px;
+  }
+
+  .plate .apple,
+  .plate .orange {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    margin: 0;
+  }
+
+  .orange.small,
+  .apple.small {
+    height: 30px;
+    width: 30px;
+    margin: 30px 20px;
+  }
+
+  .plate>.small:only-child,
+  .bento>.small:only-child {
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    margin: 0;
+  }
+
+  .bento .apple,
+  .bento .orange {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    margin: 0;
+  }
+
+  .plate .bento {
+    height: 74px;
+    width: 74px;
+    position: absolute;
+    top: -8px;
+    left: 4px;
+
+  }
+
+  .apple {
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    background: #e41919;
+    border: solid 2px #f10404;
+    margin: 20px 10px;
+    height: 60px;
+    width: 60px;
+    z-index: 10;
+  }
+
+  .orange {
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    border-style: solid;
+    background: #e48c19;
+    border: solid 2px #5a3e02;
+    margin: 20px 10px;
+    height: 60px;
+    width: 60px;
+    z-index: 10;
+  }
+
+  .pickle {
+    position: relative;
+    background: #179837;
+    width: 25px;
+    height: 60px;
+    border-radius: 30px;
+    display: inline-block;
+    border: solid 2px #025a18;
+    margin: 20px 10px;
+  }
+
+  .pickle.small {
+    height: 40px;
+    width: 18px;
+    margin: 30px 10px;
+  }
+
+  .bento .pickle,
+  .plate .pickle {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 15px);
+    margin: 0;
+  }
+
+  #fancy:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: calc(50% - 45px);
+    top: calc(50% - 45px);
+    height: 90px;
+    width: 90px;
+    border-radius: 60px;
+    border: solid 10px #009ff2;
+    opacity: .4;
+  }
+
+  .certain {
+    transform-origin: bottom;
+    animation: certainStart 0.5s ease-out, certain 1s infinite;
+  }
+
+  .hover-active {
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, .3);
+  }
+
+  .hover-active:hover {
+    cursor: pointer;
+  }
+}
+
+@keyframes certainStart {
+  0% {
+    transform: scaleY(1);
+    animation-timing-function: ease-in;
+  }
+
+  40% {
+    transform: scaleY(.9);
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes certain {
+  0% {
+    transform: scaleY(1);
+  }
+
+  10% {
+    transform: scaleY(.9);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+
+  60% {
+    transform: scaleY(.9);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}

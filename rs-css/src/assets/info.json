@@ -1,0 +1,1452 @@
+[
+  {
+    "menu": {
+      "id": "1",
+      "checked": false,
+      "ishelp": false,
+      "name": "Type Selector",
+      "title": "Select elements by their type",
+      "syntax": "A",
+      "hint": {
+        "textOne": "Selects all elements of type",
+        "selectorOne": "A",
+        "textTwo": ". Type refers to the type of tag, so",
+        "selectorTwo": "<div>",
+        "textThree": ",",
+        "selectorThree": "<p>",
+        "textFour": " and ",
+        "selectorFour": "<ul>",
+        "textFive": "are all different element types.",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "div",
+          "textTwo": "selects all",
+          "selectorTwo": "<div>",
+          "textThree": "elements.",
+          "selectorThree": ""
+        },
+        {
+          "textOne": "",
+          "selectorOne": "p",
+          "textTwo": "selects all",
+          "selectorTwo": "<p>",
+          "textThree": "elements.",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "1",
+      "title": "Select the plates",
+      "selector": ["plate", "*"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "2",
+      "checked": false,
+      "ishelp": false,
+      "name": "Type Selector",
+      "title": "Select elements by their type",
+      "syntax": "A",
+      "hint": {
+        "textOne": "Selects all elements of type",
+        "selectorOne": "A",
+        "textTwo": ". Type refers to the type of tag, so",
+        "selectorTwo": "<div>",
+        "textThree": ",",
+        "selectorThree": "<p>",
+        "textFour": " and ",
+        "selectorFour": "<ul>",
+        "textFive": "are all different element types.",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "div",
+          "textTwo": "selects all",
+          "selectorTwo": "<div>",
+          "textThree": "elements.",
+          "selectorThree": ""
+        },
+        {
+          "textOne": "",
+          "selectorOne": "p",
+          "textTwo": "selects all",
+          "selectorTwo": "<p>",
+          "textThree": "elements.",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "2",
+      "title": "Select the bento boxes",
+      "selector": ["bento"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "3",
+      "checked": false,
+      "ishelp": false,
+      "name": "ID Selector",
+      "title": "Select elements with an ID",
+      "syntax": "#id",
+      "hint": {
+        "textOne": "Selects the element with a specific",
+        "selectorOne": "id",
+        "textTwo": ". You can also combine the ID selector with the type selector.",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "#cool",
+          "textTwo": "selects any element with",
+          "selectorTwo": "id=″cool″",
+          "textThree": "",
+          "selectorThree": ""
+        },
+        {
+          "textOne": "",
+          "selectorOne": "ul#long",
+          "textTwo": "selects",
+          "selectorTwo": "<ul id=″long″>",
+          "textThree": "elements.",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "3",
+      "title": "Select the fancy plate",
+      "selector": ["#fancy"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["plate", "", "fancy"],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "4",
+      "checked": false,
+      "ishelp": false,
+      "name": "Descendant Selector",
+      "title": "Select an element inside another element",
+      "syntax": "A B",
+      "hint": {
+        "textOne": "Selects all",
+        "selectorOne": "B",
+        "textTwo": "inside of ",
+        "selectorTwo": "A",
+        "textThree": ".",
+        "selectorThree": "B",
+        "textFour": " is called a descendant because it is inside of another element.",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "p  strong",
+          "textTwo": "selects all",
+          "selectorTwo": "<strong>",
+          "textThree": "elements that are inside of any",
+          "selectorThree": "<p>"
+        },
+        {
+          "textOne": "",
+          "selectorOne": "#fancy  span",
+          "textTwo": "selects any",
+          "selectorTwo": "<span>",
+          "textThree": "elements that are inside of the element with",
+          "selectorThree": "id=″fancy″"
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "4",
+      "title": "Select the apple on the plate",
+      "selector": ["plate apple"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "5",
+      "checked": false,
+      "ishelp": false,
+      "name": "",
+      "title": "Combine the Descendant & ID Selectors",
+      "syntax": "#id A",
+      "hint": {
+        "textOne": "You can combine any selector with the descendent selector.",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "#cool span",
+          "textTwo": "selects all",
+          "selectorTwo": "<span>",
+          "textThree": "elements that are inside of elements with",
+          "selectorThree": "id=″cool″"
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "5",
+      "title": "Select the pickle on the fancy plate",
+      "selector": ["#fancy pickle"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["bento", "", ""],
+            ["orange", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", "fancy"],
+            ["pickle", "", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["pickle", "", ""]
+          ],
+          "active": [false, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "6",
+      "checked": false,
+      "ishelp": false,
+      "name": "Class Selector",
+      "title": "Select elements by their class",
+      "syntax": ".classname",
+      "hint": {
+        "textOne": "The class selector selects all elements with that class attribute. Elements can only have one ID, but many classes.",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": ".neato",
+          "textTwo": " selects all elements with",
+          "selectorTwo": "class=″neato″",
+          "textThree": "",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "6",
+      "title": "Select the small apples",
+      "selector": [".small"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["apple", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["apple", "small", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "7",
+      "checked": false,
+      "ishelp": false,
+      "name": "",
+      "title": "Combine the Class Selector",
+      "syntax": "A.className",
+      "hint": {
+        "textOne": "You can combine the class selector with other selectors, like the type selector.",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "ul.important",
+          "textTwo": "selects all",
+          "selectorTwo": "<ul>",
+          "textThree": "elements that have",
+          "selectorThree": "class=″important″"
+        },
+        {
+          "textOne": "",
+          "selectorOne": "#big.wide",
+          "textTwo": " selects all elements with",
+          "selectorTwo": "id=″big″",
+          "textThree": "that also have",
+          "selectorThree": "class=″wide″"
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "7",
+      "title": "Select the small oranges",
+      "selector": ["orange.small"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["apple", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["orange", "small", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["orange", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["orange", "small", ""]
+          ],
+          "active": [false, true, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "8",
+      "checked": false,
+      "ishelp": false,
+      "name": "",
+      "title": "You can do it...",
+      "syntax": "Put your back into it!",
+      "hint": {
+        "textOne": "Combine what you learned in the last few levels to solve this one!",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": []
+    },
+    "gameLevel": {
+      "id": "8",
+      "title": "Select the small oranges in the bentos",
+      "selector": ["bento orange.small"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["bento", "", ""],
+            ["orange", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["orange", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["orange", "small", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["apple", "small", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["orange", "small", ""]
+          ],
+          "active": [false, true, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "9",
+      "checked": false,
+      "ishelp": false,
+      "name": "Comma Combinator",
+      "title": "Combine, selectors, with... commas!",
+      "syntax": "A, B",
+      "hint": {
+        "textOne": "Thanks to Shatner technology, this selects all",
+        "selectorOne": "A",
+        "textTwo": "and",
+        "selectorTwo": "B",
+        "textThree": " elements. You can combine any selectors this way, and you can specify more than two.",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "p, .fun",
+          "textTwo": "selects all",
+          "selectorTwo": "<p>",
+          "textThree": "elements as well as all elements with",
+          "selectorThree": "class=″fun″"
+        },
+        {
+          "textOne": "",
+          "selectorOne": "a, p, div",
+          "textTwo": "selects all",
+          "selectorTwo": "<a>, <p>",
+          "textThree": "and",
+          "selectorThree": "<div>"
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "9",
+      "title": "Select all the plates and bentos",
+      "selector": ["bento, plate"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["pickle", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["pickle", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["pickle", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["pickle", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["pickle", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "10",
+      "checked": false,
+      "ishelp": false,
+      "name": "The Universal Selector",
+      "title": "You can select everything!",
+      "syntax": "*",
+      "hint": {
+        "textOne": "You can select all elements with the universal selector!",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "p *",
+          "textTwo": "selects any element inside all",
+          "selectorTwo": "<p>",
+          "textThree": "elements.",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "10",
+      "title": "Select the small oranges in the bentos",
+      "selector": ["*"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["orange", "small", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["orange", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", "fancy"],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "11",
+      "checked": false,
+      "ishelp": false,
+      "name": "The Universal Selector",
+      "title": "Combine the Universal Selector",
+      "syntax": "A *",
+      "hint": {
+        "textOne": "This selects all elements inside of",
+        "selectorOne": "A",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "p *",
+          "textTwo": "selects any element inside all",
+          "selectorTwo": "<p>",
+          "textThree": "elements.",
+          "selectorThree": ""
+        },
+        {
+          "textOne": "",
+          "selectorOne": "ul.fancy *",
+          "textTwo": " selects every element inside all",
+          "selectorTwo": "<ul class=″fancy″>",
+          "textThree": "elements.",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "11",
+      "title": "Select everything on a plate",
+      "selector": ["plate *"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["plate", "", ""],
+            ["orange", "small", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["pickle", "", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["apple", "", ""]
+          ],
+          "active": [true, true, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "12",
+      "checked": false,
+      "ishelp": false,
+      "name": "Adjacent Sibling Selector",
+      "title": "Select an element that directly follows another element",
+      "syntax": "A + B",
+      "hint": {
+        "textOne": "This selects all ",
+        "selectorOne": "B",
+        "textTwo": "elements that directly follow",
+        "selectorTwo": "A",
+        "textThree": ". Elements that follow one another are called siblings. They're on the same level, or depth.",
+        "selectorThree": "",
+        "textFour": "In the HTML markup for this level, elements that have the same indentation are siblings.",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "p + .intro",
+          "textTwo": " selects every element with",
+          "selectorTwo": "<class=″intro″>",
+          "textThree": " that directly follows a",
+          "selectorThree": "<p>"
+        },
+        {
+          "textOne": "",
+          "selectorOne": "div + a",
+          "textTwo": " selects every",
+          "selectorTwo": "<a>",
+          "textThree": "element that directly follows a",
+          "selectorThree": "<div>"
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "12",
+      "title": "Select everything on a plate",
+      "selector": ["plate + apple"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["apple", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["apple", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "13",
+      "checked": false,
+      "ishelp": false,
+      "name": "General Sibling Selector",
+      "title": "Select elements that follows another element",
+      "syntax": "A ~ B",
+      "hint": {
+        "textOne": "You can select all siblings of an element that follow it. This is like the Adjacent Selector (A + B) except it gets all of the following elements instead of one. ",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "A ~ B",
+          "textTwo": "selects all ",
+          "selectorTwo": "B",
+          "textThree": "that follow a ",
+          "selectorThree": "A"
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "13",
+      "title": "Select everything on a plate",
+      "selector": ["bento ~ pickle"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["bento", "", ""],
+            ["orange", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["pickle", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["pickle", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["pickle", "", ""]
+          ],
+          "active": [false, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "14",
+      "checked": false,
+      "ishelp": false,
+      "name": "Child Selector",
+      "title": "Select direct children of an element",
+      "syntax": "A > B",
+      "hint": {
+        "textOne": "You can select elements that are direct children of other elements. A child element is any element that is nested directly in another element.",
+        "selectorOne": "",
+        "textTwo": "Elements that are nested deeper than that are called descendant elements.",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "A > B",
+          "textTwo": "selects all ",
+          "selectorTwo": "B",
+          "textThree": "that are a direct children ",
+          "selectorThree": "A"
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "14",
+      "title": "Select the apple directly on a plate",
+      "selector": ["plate>apple"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["plate", "", ""],
+            ["apple", "", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["pickle", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["apple", "small", ""]
+          ],
+          "active": [false, true, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "15",
+      "checked": false,
+      "ishelp": false,
+      "name": "Nth Child Pseudo-selector",
+      "title": "Select an element by its order in another element",
+      "syntax": ":nth-child(A)",
+      "hint": {
+        "textOne": "Selects the",
+        "selectorOne": "nth",
+        "textTwo": "(Ex: 1st, 3rd, 12th etc.) child element in another element.",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "div p:nth-child(2)",
+          "textTwo": "selects the second",
+          "selectorTwo": "p",
+          "textThree": "in every ",
+          "selectorThree": "div"
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "15",
+      "title": "Select the 3rd plate",
+      "selector": ["plate:nth-child(3)"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, true, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", "fancy"],
+            ["", "", ""]
+          ],
+          "active": [false, true, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "16",
+      "checked": false,
+      "ishelp": false,
+      "name": "Nth Last Child Selector",
+      "title": "Select an element by its order in another element, counting from the back",
+      "syntax": ":nth-last-child(A)",
+      "hint": {
+        "textOne": "Selects the children from the bottom of the parent. This is like nth-child, but counting from the back!",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": ":nth-last-child(2)",
+          "textTwo": "selects all second-to-last child elements.",
+          "selectorTwo": "",
+          "textThree": "",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "16",
+      "title": "Select the 1st bento",
+      "selector": ["bento:nth-last-child(3)"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "17",
+      "checked": false,
+      "ishelp": false,
+      "name": "First of Type Selector",
+      "title": "Select the first element of a specific type",
+      "syntax": ":first-of-type",
+      "hint": {
+        "textOne": "Selects the first element of that type within another element.",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "span:first-of-type",
+          "textTwo": "selects the first",
+          "selectorTwo": "<span>",
+          "textThree": "in any element.",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "17",
+      "title": "Select first apple",
+      "selector": ["apple:first-of-type"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["plate", "", ""],
+            ["orange", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["apple", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["apple", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "18",
+      "checked": false,
+      "ishelp": false,
+      "name": "Nth of Type Selector",
+      "title": "",
+      "syntax": ":nth-of-type(A)",
+      "hint": {
+        "textOne": "Selects a specific element based on its type and order in another element - or even or odd instances of that element.",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "div:nth-of-type(2)",
+          "textTwo": "selects the second instance of a div.",
+          "selectorTwo": "",
+          "textThree": "",
+          "selectorThree": ""
+        },
+        {
+          "textOne": "",
+          "selectorOne": ".example:nth-of-type(odd)",
+          "textTwo": "selects all odd instances of a the example class.",
+          "selectorTwo": "",
+          "textThree": "",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "18",
+      "title": "Select all even plates",
+      "selector": ["plate:nth-of-type(even)"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["plate", "", "fancy"],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "19",
+      "checked": false,
+      "ishelp": false,
+      "name": "Last of Type Selector",
+      "title": "Select the last element of a specific type",
+      "syntax": ":last-of-type",
+      "hint": {
+        "textOne": "Selects each last element of that type within another element. Remember type refers the kind of tag, so",
+        "selectorOne": "<p>",
+        "textTwo": "and ",
+        "selectorTwo": "<span>",
+        "textThree": " are different types.",
+        "selectorThree": "",
+        "textFour": "I wonder if this is how the last dinosaur was selected before it went extinct.",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "div:last-of-type",
+          "textTwo": " selects the last",
+          "selectorTwo": "<div>",
+          "textThree": " in every element",
+          "selectorThree": ""
+        },
+        {
+          "textOne": "",
+          "selectorOne": "p span:last-of-type",
+          "textTwo": " selects the last ",
+          "selectorTwo": "<span>",
+          "textThree": "in every ",
+          "selectorThree": "<p>"
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "19",
+      "title": "Select the last apple and orange",
+      "selector": [".small:last-of-type"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["orange", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["orange", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["pickle", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["pickle", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["apple", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["apple", "small", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        }
+      ]
+    }
+  },
+  {
+    "menu": {
+      "id": "20",
+      "checked": false,
+      "ishelp": false,
+      "name": "Empty Selector",
+      "title": "Select elements that don't have children",
+      "syntax": ":empty",
+      "hint": {
+        "textOne": "Selects elements that don't have any other elements inside of them.",
+        "selectorOne": "",
+        "textTwo": "",
+        "selectorTwo": "",
+        "textThree": "",
+        "selectorThree": "",
+        "textFour": "",
+        "selectorFour": "",
+        "textFive": "",
+        "selectorFive": ""
+      },
+      "examples": [
+        {
+          "textOne": "",
+          "selectorOne": "div:empty",
+          "textTwo": " selects all empty",
+          "selectorTwo": "<div>",
+          "textThree": " elements.",
+          "selectorThree": ""
+        }
+      ]
+    },
+    "gameLevel": {
+      "id": "20",
+      "title": "Select the empty bentos",
+      "selector": ["bento:empty"],
+      "boardMarkup": [
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["pickle", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["pickle", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["plate", "", ""],
+            ["", "", ""]
+          ],
+          "active": [false, false, false]
+        },
+        {
+          "element": [
+            ["bento", "", ""],
+            ["", "", ""]
+          ],
+          "active": [true, false, false]
+        }
+      ]
+    }
+  }
+]
