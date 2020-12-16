@@ -1,12 +1,13 @@
 import '@/assets/stylesheets/index.scss';
 import * as React from 'react';
+import { CookiesProvider } from 'react-cookie';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { CookiesProvider } from 'react-cookie';
 import { BrowserRouter } from 'react-router-dom';
-import { store } from './redux-store';
 
 import App from '@/components/app';
+
+import { store } from './redux-app';
 
 const rootElement = document.getElementById('app');
 render(

@@ -1,3 +1,3 @@
-import { GameMenu } from './game-menu';
+import GameMenu from './game-menu';
 
 export default GameMenu;

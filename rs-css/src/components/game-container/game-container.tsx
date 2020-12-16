@@ -1,24 +1,32 @@
+import { Typography, Modal } from 'antd';
 import * as React from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
-import { Typography, message, Modal } from 'antd';
+
 import './game-container.scss';
+import { changeCheck, changeHelp } from '../../redux-app';
 import GameEditor from '../game-editor';
 import GameTable from '../game-table';
-import { changeCheck, changeHelp } from '../../redux-store';
 
-export const GameContainer: React.FC = () => {
+const GameContainer: React.FC = () => {
   const { Title } = Typography;
   const dispatch: Dispatch = useDispatch();
   const gameState: IGameState = useSelector((state: IGameState) => state, shallowEqual);
 
   const changeCheckLevelGame = React.useCallback(
-    (gameState: IGameState) => dispatch(changeCheck(gameState)),
+    (state: IGameState) => dispatch(changeCheck(state)),
     [dispatch]
   );
-
-  const error = () => {
-    message.error('Incorrect answer');
+  const isFinishedGame = (state: IGameState) => {
+    let isFinished = true;
+    state.games.forEach((element, index) => {
+      if (!element.menu.checked && index !== state.currentLevel - 1) {
+        isFinished = false;
+        return false;
+      }
+      return true;
+    });
+    return isFinished;
   };
 
   const changeCheckCurrent = (value: string) => {
@@ -48,25 +56,11 @@ export const GameContainer: React.FC = () => {
           ...gameState.games.slice(gameState.currentLevel),
         ],
       });
-    } else {
-      error();
     }
   };
 
-  const isFinishedGame = (gameState: IGameState) => {
-    let isFinished = true;
-    gameState.games.forEach((element, index) => {
-      if (!element.menu.checked && index !== gameState.currentLevel - 1) {
-        isFinished = false;
-        return false;
-      }
-      return false;
-    });
-    return isFinished;
-  };
-
   const changeFocusSelector = React.useCallback(
-    (gameState: IGameState) => dispatch(changeCheck(gameState)),
+    (state: IGameState) => dispatch(changeCheck(state)),
     [dispatch]
   );
 
@@ -80,10 +74,9 @@ export const GameContainer: React.FC = () => {
     });
   };
 
-  const changeHelpGame = React.useCallback(
-    (gameState: IGameState) => dispatch(changeHelp(gameState)),
-    [dispatch]
-  );
+  const changeHelpGame = React.useCallback((state: IGameState) => dispatch(changeHelp(state)), [
+    dispatch,
+  ]);
 
   const changeHelpLevelGame = () => {
     changeHelpGame({
@@ -120,13 +113,14 @@ export const GameContainer: React.FC = () => {
         />
       </div>
     );
-  } else {
-    return (
-      <div className="game-container">
-        <div className="game-container-title">
-          <Title level={1}>Loading...</Title>
-        </div>
-      </div>
-    );
   }
+  return (
+    <div className="game-container">
+      <div className="game-container-title">
+        <Title level={1}>Loading...</Title>
+      </div>
+    </div>
+  );
 };
+
+export default GameContainer;

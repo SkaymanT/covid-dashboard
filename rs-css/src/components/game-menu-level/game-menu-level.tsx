@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { Drawer, Button, Slider, InputNumber, Typography, Space, Tooltip } from 'antd';
 import { MenuFoldOutlined, CheckOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import {
+  Drawer, Button, Slider, InputNumber, Typography, Space, Tooltip,
+} from 'antd';
+import React, { Fragment, useState } from 'react';
 
 import './game-menu-level.scss';
 
@@ -11,7 +13,7 @@ type Props = {
   resetGameLevel: () => void;
 };
 
-export const GameMenuLevel: React.FC<Props> = ({
+const GameMenuLevel: React.FC<Props> = ({
   games,
   currentLevel,
   changeGameLevel,
@@ -44,7 +46,7 @@ export const GameMenuLevel: React.FC<Props> = ({
   };
 
   const check = (
-    <React.Fragment>
+    <Fragment>
       {games[currentLevel - 1].menu.ishelp && games[currentLevel - 1].menu.checked ? (
         <Tooltip placement="top" title="solved with Help">
           <CheckCircleOutlined
@@ -69,18 +71,19 @@ export const GameMenuLevel: React.FC<Props> = ({
       <Title level={4} style={{ margin: '0px' }}>
         Level
       </Title>
-    </React.Fragment>
+    </Fragment>
   );
 
   const levels = (
-    <React.Fragment>
+    <Fragment>
       {games.map((item, index) => {
         const classes = index === currentLevel - 1 ? ['level', 'current'] : ['level'];
         return (
-          <a
+          <button
             className={classes.join(' ')}
             key={item.menu.id}
             onClick={() => onClickLevel(+item.menu.id)}
+            type="button"
           >
             <Space size="large">
               {item.menu.ishelp && item.menu.checked ? (
@@ -106,16 +109,16 @@ export const GameMenuLevel: React.FC<Props> = ({
                 {item !== undefined ? `${item.menu.id}   ${item.menu.syntax}` : ' '}
               </Title>
             </Space>
-          </a>
+          </button>
         );
       })}
       <Button type="primary" block onClick={() => onClickReset()}>
         Reset Progress
       </Button>
-    </React.Fragment>
+    </Fragment>
   );
   return (
-    <React.Fragment>
+    <Fragment>
       <div className="menu-info">
         <Button type="primary" onClick={showDrawer}>
           <MenuFoldOutlined />
@@ -148,6 +151,8 @@ export const GameMenuLevel: React.FC<Props> = ({
           value={typeof currentLevel === 'number' ? currentLevel : 0}
         />
       </div>
-    </React.Fragment>
+    </Fragment>
   );
 };
+
+export default GameMenuLevel;

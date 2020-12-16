@@ -1,18 +1,32 @@
 @charset 'UTF-8';
 
-.footer {
-  flex: 0 0 auto;
+@import 'antd/dist/antd.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Nunito, sans-serif;
+}
+
+div.ant-row {
+  position: relative;
+  height: calc(100% - 50px);
+}
+@media (max-width: 891px) {
+  div.ant-row {
+    height: auto;
+  }
+}
+
+#app {
+  height: 100%;
+  width: 100%;
   display: flex;
-  background: linear-gradient(40deg, #818181, #777777);
-  justify-content: space-around;
-  align-items: center;
-  min-height: 50px;
-
-  img {
-    width: 30px;
-  }
-
-  & .school-link img {
-    width: 50px;
-  }
+  flex-direction: column;
+  justify-content: space-between;
 }

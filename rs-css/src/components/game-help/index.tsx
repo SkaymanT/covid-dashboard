@@ -1,3 +1,3 @@
-import { GameHelp } from './game-help';
+import GameHelp from './game-help';
 
 export default GameHelp;

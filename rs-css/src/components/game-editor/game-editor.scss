@@ -58,6 +58,13 @@
       padding-left: 15px;
     }
 
+    code {
+      color: #be4678;
+    }
+
+    .code-string {
+      color: #2a9292;
+    }
     .hover-active * {
       color: rgb(6, 216, 16);
     }
@@ -86,8 +93,7 @@
   }
 }
 
-
-.game-editor>input:focus {
+.game-editor > input:focus {
   outline: none;
   border-color: #555;
 }

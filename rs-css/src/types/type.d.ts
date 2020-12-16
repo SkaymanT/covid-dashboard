@@ -22,12 +22,6 @@ interface IBoardMarkup {
   active: boolean[];
 }
 
-interface IElement {
-  tag: string;
-  class: string;
-  id: string;
-}
-
 interface IMenu {
   id: string;
   checked: boolean;
@@ -60,10 +54,10 @@ interface IExamples {
   textThree: string;
   selectorThree: string;
 }
-
+/* eslint-disable @typescript-eslint/no-unused-vars*/
 type GameAction = {
   type: string;
   payload: IGameState;
 };
-
+/* eslint-disable @typescript-eslint/no-unused-vars*/
 type DispatchType = (args: GameAction) => GameAction;

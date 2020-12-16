@@ -1,3 +1,3 @@
-import { updateGame } from './common/common';
+import updateGame from './common/common';
 
-export { updateGame };
+export default updateGame;

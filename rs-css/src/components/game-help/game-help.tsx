@@ -1,5 +1,5 @@
-import React from 'react';
 import { Divider, Typography } from 'antd';
+import React from 'react';
 
 import './game-help.scss';
 
@@ -7,74 +7,66 @@ type Props = {
   menu: IMenu;
 };
 
-export const GameHelp: React.FC<Props> = ({ menu }) => {
+const GameHelp: React.FC<Props> = ({ menu }) => {
   const { Title, Text } = Typography;
+  let i = 0;
   return (
     <div className="menu-help">
       <Title level={4}>{menu.name}</Title>
       <Text>{menu.title}</Text>
-      <Title level={3} code={true}>
+      <Title level={3} code>
         {menu.syntax}
       </Title>
       <Text>
         {menu.hint.textOne}
         {menu.hint.selectorOne !== '' ? (
-          <Text code={true}>{menu.hint.selectorOne}</Text>
+          <Text code>{menu.hint.selectorOne}</Text>
         ) : (
-            menu.hint.selectorOne
-          )}
+          menu.hint.selectorOne
+        )}
         {menu.hint.textTwo}
         {menu.hint.selectorTwo !== '' ? (
-          <Text code={true}>{menu.hint.selectorTwo}</Text>
+          <Text code>{menu.hint.selectorTwo}</Text>
         ) : (
-            menu.hint.selectorTwo
-          )}
+          menu.hint.selectorTwo
+        )}
         {menu.hint.textThree}
         {menu.hint.selectorThree !== '' ? (
-          <Text code={true}>{menu.hint.selectorThree}</Text>
+          <Text code>{menu.hint.selectorThree}</Text>
         ) : (
-            menu.hint.selectorThree
-          )}
+          menu.hint.selectorThree
+        )}
         {menu.hint.textFour}
         {menu.hint.selectorFour !== '' ? (
-          <Text code={true}>{menu.hint.selectorFour}</Text>
+          <Text code>{menu.hint.selectorFour}</Text>
         ) : (
-            menu.hint.selectorFour
-          )}
+          menu.hint.selectorFour
+        )}
         {menu.hint.textFive}
         {menu.hint.selectorFive !== '' ? (
-          <Text code={true}>{menu.hint.selectorFive}</Text>
+          <Text code>{menu.hint.selectorFive}</Text>
         ) : (
-            menu.hint.selectorFive
-          )}
+          menu.hint.selectorFive
+        )}
       </Text>
       <Divider dashed />
-      {
-        menu.examples.length !== 0 ? <Title level={4}>Examples</Title> : ''
-      }
+      {menu.examples.length !== 0 ? <Title level={4}>Examples</Title> : ''}
 
-      {menu.examples.map((item, index) => {
+      {menu.examples.map(item => {
+        i += 1;
         return (
-          <div className="example" key={index}>
-            <Text key={index}>
+          <div className="example" key={`${i}`}>
+            <Text key={`${i}`}>
               {item.textOne}
-              {item.selectorOne !== '' ? (
-                <Text code={true}>{item.selectorOne}</Text>
-              ) : (
-                  item.selectorOne
-                )}
+              {item.selectorOne !== '' ? <Text code>{item.selectorOne}</Text> : item.selectorOne}
               {item.textTwo}
-              {item.selectorTwo !== '' ? (
-                <Text code={true}>{item.selectorTwo}</Text>
-              ) : (
-                  item.selectorTwo
-                )}
+              {item.selectorTwo !== '' ? <Text code>{item.selectorTwo}</Text> : item.selectorTwo}
               {item.textThree}
               {item.selectorThree !== '' ? (
-                <Text code={true}>{item.selectorThree}</Text>
+                <Text code>{item.selectorThree}</Text>
               ) : (
-                  item.selectorThree
-                )}
+                item.selectorThree
+              )}
             </Text>
           </div>
         );
@@ -82,3 +74,5 @@ export const GameHelp: React.FC<Props> = ({ menu }) => {
     </div>
   );
 };
+
+export default GameHelp;

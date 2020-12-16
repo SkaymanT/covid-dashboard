@@ -44,8 +44,8 @@
     margin: 30px 20px;
   }
 
-  .plate>.small:only-child,
-  .bento>.small:only-child {
+  .plate > .small:only-child,
+  .bento > .small:only-child {
     position: absolute;
     top: calc(50% - 15px);
     left: calc(50% - 15px);
@@ -66,7 +66,6 @@
     position: absolute;
     top: -8px;
     left: 4px;
-
   }
 
   .apple {
@@ -118,7 +117,7 @@
   }
 
   #fancy:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     left: calc(50% - 45px);
@@ -127,7 +126,7 @@
     width: 90px;
     border-radius: 60px;
     border: solid 10px #009ff2;
-    opacity: .4;
+    opacity: 0.4;
   }
 
   .certain {
@@ -136,7 +135,7 @@
   }
 
   .hover-active {
-    box-shadow: 0 0 0 6px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.3);
   }
 
   .hover-active:hover {
@@ -151,7 +150,7 @@
   }
 
   40% {
-    transform: scaleY(.9);
+    transform: scaleY(0.9);
     animation-timing-function: ease-out;
   }
 
@@ -166,7 +165,7 @@
   }
 
   10% {
-    transform: scaleY(.9);
+    transform: scaleY(0.9);
   }
 
   50% {
@@ -174,7 +173,7 @@
   }
 
   60% {
-    transform: scaleY(.9);
+    transform: scaleY(0.9);
   }
 
   100% {

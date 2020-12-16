@@ -24,7 +24,7 @@ const formStylesRule = (useModules = false) => ({
         sourceMap: true,
         ...(useModules && {
           modules: {
-            localIdentName: '[local]-[hash:base64:5]',
+            localIdentName: '[local]',
           },
         }),
       },
@@ -55,7 +55,7 @@ const config: Configuration = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif)$/,
         use: [
           {
             loader: 'url-loader',
@@ -80,6 +80,16 @@ const config: Configuration = {
       },
       formStylesRule(false),
       formStylesRule(true),
+      {
+        test: /\.svg$/,
+        loader: 'react-svg-loader',
+        options: {
+          svgo: {
+            plugins: [{ removeUselessStrokeAndFill: false }],
+            floatPrecision: 2,
+          },
+        },
+      },
     ],
   },
   resolve: {
@@ -100,15 +110,12 @@ const config: Configuration = {
       chunkFilename: '[id].css',
       filename: '[name].css',
     }),
-    new CopyWebpackPlugin({
-      patterns: [{ from: './src/assets', to: 'assets' }],
-    }),
     isAnalyze ? new BundleAnalyzerPlugin() : nothing,
-    // isProduction
-    //   ? new CopyWebpackPlugin({
-    //     patterns: [{ from: './src/static', to: '.' }],
-    //   })
-    //   : nothing,
+    isProduction
+      ? new CopyWebpackPlugin({
+        patterns: [{ from: './src/static', to: '.' }],
+      })
+      : nothing,
   ],
 };
 

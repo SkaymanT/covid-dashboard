@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-import './game-editor.scss';
 import { Button, Input } from 'antd';
-import Highlight from 'react-highlight';
+import React, { useEffect, useState } from 'react';
+
+import './game-editor.scss';
 
 type Props = {
   currentLevel: number;
@@ -12,7 +11,7 @@ type Props = {
   changeFocus: (value: IBoardMarkup[]) => void;
 };
 
-export const GameEditor: React.FC<Props> = ({
+const GameEditor: React.FC<Props> = ({
   currentLevel,
   gameLevel,
   changeCheck,
@@ -25,20 +24,22 @@ export const GameEditor: React.FC<Props> = ({
   const [isSucces, setIsSucces] = useState(false);
   const classes = focus ? [] : ['input-animation'];
   const line = [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  let i = 0;
 
   const handlerClickEnter = () => {
-    const res = searchWord(value, gameLevel.selector);
-    res ? setIsError(false) : setIsError(true);
-    res ? setIsSucces(true) : setIsSucces(false);
+    const res = gameLevel.selector.find(item => item === value) !== undefined;
+    if (res) {
+      setIsError(false);
+      setIsSucces(true);
+    } else {
+      setIsError(true);
+      setIsSucces(false);
+    }
     setTimeout(() => {
       setIsError(false);
       setIsSucces(false);
       changeCheck(value);
     }, 300);
-  };
-
-  const searchWord = (word: string, array: string[]) => {
-    return array.find((item) => item === word) === undefined ? false : true;
   };
 
   useEffect(() => {
@@ -49,7 +50,11 @@ export const GameEditor: React.FC<Props> = ({
   }, [currentLevel]);
 
   const handlerChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.target.value === '' ? setFocus(false) : setFocus(true);
+    if (event.target.value === '') {
+      setFocus(false);
+    } else {
+      setFocus(true);
+    }
     setValue(event.target.value);
   };
 
@@ -59,9 +64,11 @@ export const GameEditor: React.FC<Props> = ({
         if (indexIn === index) {
           if (indexElement === 0) {
             return { ...item, focus: [true, false, true] };
-          } else if (indexElement === 1) {
+          }
+          if (indexElement === 1) {
             return { ...item, focus: [false, true, false] };
-          } else if (indexElement === 2) {
+          }
+          if (indexElement === 2) {
             return { ...item, focus: [true, false, true] };
           }
         }
@@ -72,7 +79,7 @@ export const GameEditor: React.FC<Props> = ({
 
   const handlerClickHelp = () => {
     setFocus(true);
-    for (let index = 0; index < gameLevel.selector[0].length + 1; ++index) {
+    for (let index = 0; index < gameLevel.selector[0].length + 1; index += 1) {
       setTimeout(() => {
         setValue(gameLevel.selector[0].slice(0, index));
       }, 100 * index);
@@ -81,33 +88,45 @@ export const GameEditor: React.FC<Props> = ({
   };
 
   const handlerMouseLeave = () => {
-    changeFocus(
-      gameLevel.boardMarkup.map((item) => {
-        return { ...item, focus: [false, false, false] };
-      })
-    );
+    changeFocus(gameLevel.boardMarkup.map(item => ({ ...item, focus: [false, false, false] })));
   };
 
   const createCode = (element: string[]) => {
     if (element[1] !== '' && element[2] !== '') {
-      return `${element[0]} class="${element[1]}" id="${element[2]}"`;
-    } else if (element[1] !== '' && element[2] === '') {
-      return `${element[0]} class="${element[1]}"`;
-    } else if (element[1] === '' && element[2] !== '') {
-      return `${element[0]} id="${element[2]}"`;
-    } else {
-      return `${element[0]}`;
+      return (
+        <code>
+          {'<div class='}
+          <span className="code-string">{`"${element[1]}"`}</span>
+          {' '}
+          {' class='}
+          <span className="code-string">{`"${element[2]}"`}</span>
+          {'>'}
+        </code>
+      );
     }
+    if (element[1] !== '' && element[2] === '') {
+      return (
+        <code>
+          {'<div class='}
+          <span className="code-string">{`"${element[1]}"`}</span>
+          {'>'}
+        </code>
+      );
+    }
+    if (element[1] === '' && element[2] !== '') {
+      return (
+        <code>
+          {'<div id='}
+          <span className="code-string">{`"${element[2]}"`}</span>
+          {'>'}
+        </code>
+      );
+    }
+    return <code>{`<${element[0]} />`}</code>;
   };
 
   return (
-    <div
-      className={
-        isError
-          ? 'game-editor error'
-          : `${isSucces ? 'succes' : ''} game-editor`
-      }
-    >
+    <div className={isError ? 'game-editor error' : `${isSucces ? 'succes' : ''} game-editor`}>
       <div className="editor-pane">
         <div className="input-header">
           <div>CSS Editor</div>
@@ -120,13 +139,12 @@ export const GameEditor: React.FC<Props> = ({
         </div>
         <div className="css-view">
           <div className="line-numbers">
-            {line.map((_, index) => {
-              return (
-                <div key={index}>
-                  {index + 1} <br />
-                </div>
-              );
-            })}
+            {line.map(item => (
+              <div key={item}>
+                {item}
+                <br />
+              </div>
+            ))}
           </div>
           <Input
             className={classes.join(' ')}
@@ -140,22 +158,6 @@ export const GameEditor: React.FC<Props> = ({
           <Button type="primary" size="small" onClick={handlerClickEnter}>
             Enter
           </Button>
-          <div>
-            <br />
-            /* Styles would go here. */
-            <br />
-          </div>
-          <br />
-          <div>
-            /*
-            <br />
-            Type a number to skip to a level.
-            <br />
-            Ex → "5" for level 5
-            <br />
-            */
-            <br />
-          </div>
         </div>
       </div>
       <div className="editor-pane html-view">
@@ -165,72 +167,73 @@ export const GameEditor: React.FC<Props> = ({
         </div>
         <div className="file-window">
           <div className="line-numbers">
-            {line.map((_, index) => {
-              return (
-                <div key={index}>
-                  {index + 1} <br />
-                </div>
-              );
-            })}
+            {line.map(item => (
+              <div key={item}>
+                {item}
+                <br />
+              </div>
+            ))}
           </div>
           <div className="markup">
             <div>
-              {' '}
-              <Highlight className="html">{`<div class="table">`}</Highlight>
-              {gameLevel.boardMarkup.map((item, index) =>
-                item.element[1][0] === '' ? (
+              <code>
+                {'<div class='}
+                <span className="code-string">&quot;table&quot;</span>
+                {'>'}
+              </code>
+              {gameLevel.boardMarkup.map((item, index) => {
+                i += 1;
+                return item.element[1][0] === '' ? (
                   <div
                     className={item.focus[0] ? 'hover-active' : ''}
-                    key={index}
-                    onMouseOver={(e) => {
+                    key={`${i}`}
+                    onMouseOver={e => {
                       e.stopPropagation();
                       handlerMouseEnter(index, 0);
                     }}
                     onMouseOut={() => {
                       handlerMouseLeave();
                     }}
+                    onFocus={() => {}}
+                    onBlur={() => {}}
                   >
-                    <Highlight className="html">
-                      {`<${createCode(item.element[0])} />`}
-                    </Highlight>
+                    {createCode(item.element[0])}
                   </div>
                 ) : (
                   <div
                     className={item.focus[0] ? 'hover-active' : ''}
-                    key={index}
-                    onMouseOver={(e) => {
+                    key={`${i}`}
+                    onMouseOver={e => {
                       e.stopPropagation();
                       handlerMouseEnter(index, 0);
                     }}
                     onMouseLeave={() => {
                       handlerMouseLeave();
                     }}
+                    onFocus={() => {}}
+                    onBlur={() => {}}
                   >
-                    <Highlight className="html">
-                      {`<${createCode(item.element[0])}>`}
-                    </Highlight>
+                    {createCode(item.element[0])}
                     <div
                       className={item.focus[1] ? 'hover-active' : ''}
-                      key={index}
-                      onMouseOver={(e) => {
+                      key={`${i}`}
+                      onMouseOver={e => {
                         e.stopPropagation();
                         handlerMouseEnter(index, 1);
                       }}
                       onMouseOut={() => {
                         handlerMouseLeave();
                       }}
+                      onFocus={() => {}}
+                      onBlur={() => {}}
                     >
-                      <Highlight className="html">
-                        {`<${createCode(item.element[1])} />`}
-                      </Highlight>
+                      {createCode(item.element[1])}
                     </div>
-                    <Highlight className="html">
-                      {`</${item.element[0][0]}>`}
-                    </Highlight>
+                    <code>{`</${item.element[0][0]}>`}</code>
                   </div>
-                )
-              )}
-              <Highlight className="html">{`</div>`}</Highlight>
+                );
+              })}
+              <code>{'</div>'}</code>
             </div>
           </div>
         </div>
@@ -238,3 +241,5 @@ export const GameEditor: React.FC<Props> = ({
     </div>
   );
 };
+
+export default GameEditor;
