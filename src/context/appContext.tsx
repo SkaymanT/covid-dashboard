@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 
+import { categoriesTable } from '@/constants';
+
 type AppContextType = {
   stateApp: StateAppType;
   updateCountry(newCountry: string): void;
@@ -22,7 +24,7 @@ type Props = {
 export default function AppProvider({ children }: Props): JSX.Element {
   const [stateApp, setStateApp] = useState<StateAppType>({
     country: 'afghanistan',
-    casses: 'confirmed',
+    casses: categoriesTable[0],
   });
 
   const updateCountry = (newCountry: string) => {
