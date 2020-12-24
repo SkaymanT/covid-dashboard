@@ -15,6 +15,8 @@ export const useStateApp = () => useContext(AppContext);
 type StateAppType = {
   country: string;
   casses: string;
+  lat: number;
+  long: number;
 };
 
 type Props = {
@@ -25,6 +27,8 @@ export default function AppProvider({ children }: Props): JSX.Element {
   const [stateApp, setStateApp] = useState<StateAppType>({
     country: 'afghanistan',
     casses: categoriesTable[0],
+    lat: 10,
+    long: 40,
   });
 
   const updateCountry = (newCountry: string) => {

@@ -6,7 +6,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from '@/components/MapCovid/MapCovid.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { mapBoxToken, layers, categories } from '@/constants';
+import { useStateApp } from '@/context/appContext';
 import { useCovidMapService } from '@/services';
+import { ICovid } from '@/types/Covid';
 import convertCovidToMapCovids from '@/utils';
 
 import ComponentLayout from '../layout';
@@ -17,7 +19,9 @@ mapboxgl.accessToken = mapBoxToken;
 
 const MapCovid = (): JSX.Element => {
   const mapboxElRef = useRef(null);
+  const context = useStateApp();
   const [expandMap, setExpandMap] = useState(false);
+  const [stateLatLongCountry, setStateLatLongCountry] = useState([10, 40]);
   const [stateCategories, setStateCategories] = useState(categories);
   const handlerClickExpand = () => {
     setExpandMap(prev => !prev);
@@ -25,15 +29,37 @@ const MapCovid = (): JSX.Element => {
 
   const dataBefore = useCovidMapService();
 
+  const searchLatLong = (country: string, data: ICovid[]) => {
+    if (data !== undefined) {
+      const search = data.find(item => item.country.toLowerCase() === country.toLowerCase());
+      if (search !== undefined) {
+        return { lat: search.countryInfo.lat, long: search.countryInfo.long };
+      }
+      return { lat: 40, long: 10 };
+    }
+    return { lat: 40, long: 10 };
+  };
+  useEffect(() => {
+    if (dataBefore.status === 'loaded') {
+      const test = searchLatLong(context.stateApp.country, dataBefore.data);
+      if (test.long !== stateLatLongCountry[0] && test.lat !== stateLatLongCountry[1]) {
+        setStateLatLongCountry([test.long, test.lat]);
+      }
+    }
+  }, [context]);
+
   useEffect(() => {
     if (dataBefore.status === 'loaded') {
       const map = new mapboxgl.Map({
         container: mapboxElRef.current || 'map',
         style: 'mapbox://styles/mapbox/dark-v10',
-        center: [10, 40],
+        center: [10, 10],
         zoom: 2,
       });
-
+      map.flyTo({
+        center: [stateLatLongCountry[0], stateLatLongCountry[1]],
+        essential: true,
+      });
       map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
       map.on('load', () => {
         stateCategories.forEach((item, index) => {
@@ -148,7 +174,7 @@ const MapCovid = (): JSX.Element => {
         });
       });
     }
-  }, [expandMap, dataBefore]);
+  }, [expandMap, dataBefore, stateLatLongCountry]);
 
   return (
     <ComponentLayout onclickExpend={handlerClickExpand}>
