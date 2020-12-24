@@ -3,6 +3,7 @@ import { Column } from 'react-table';
 
 import styles from '@/components/ListCovid/ListCovid.scss';
 import List from '@/components/ListCovid/list/List';
+import { useStateApp } from '@/context/appContext';
 import { useCovidMapService } from '@/services';
 
 import ComponentLayout from '../layout';
@@ -134,6 +135,20 @@ const ListCovid = (): JSX.Element => {
 
   const dataBefore = useCovidMapService();
 
+  const context = useStateApp();
+  const handlerClickCasses = (state: number) => {
+    setStateTest(state);
+    if (state === 0) {
+      context.updateCasses('confirmed');
+    }
+    if (state === 1) {
+      context.updateCasses('deaths');
+    }
+    if (state === 2) {
+      context.updateCasses('recovered');
+    }
+  };
+
   useEffect(() => {
     if (dataBefore.status === 'loaded') {
       let obj: TestData[] = [];
@@ -198,13 +213,25 @@ const ListCovid = (): JSX.Element => {
     <ComponentLayout>
       <div className={styles['list-covid']}>
         <div className={styles['button-container']}>
-          <button type="button" className={styles['list-button']} onClick={() => setStateTest(1)}>
+          <button
+            type="button"
+            className={styles['list-button']}
+            onClick={() => handlerClickCasses(1)}
+          >
             Death
           </button>
-          <button type="button" className={styles['list-button']} onClick={() => setStateTest(0)}>
+          <button
+            type="button"
+            className={styles['list-button']}
+            onClick={() => handlerClickCasses(0)}
+          >
             Cases
           </button>
-          <button type="button" className={styles['list-button']} onClick={() => setStateTest(2)}>
+          <button
+            type="button"
+            className={styles['list-button']}
+            onClick={() => handlerClickCasses(2)}
+          >
             Recovered
           </button>
         </div>

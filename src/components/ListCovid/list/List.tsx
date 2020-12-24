@@ -12,6 +12,7 @@ import {
 } from 'react-table';
 
 import styles from '@/components/ListCovid/list/List.scss';
+import { useStateApp } from '@/context/appContext';
 
 type TableProps<T extends object = {}> = TableOptions<T>;
 
@@ -34,6 +35,11 @@ function List<T extends object = {}>({ data, columns }: TableProps<T>): JSX.Elem
     useResizeColumns,
     usePagination
   );
+
+  const context = useStateApp();
+  const handlerClickRow = (newCountry: string) => {
+    context.updateCountry(newCountry);
+  };
 
   return (
     <Fragment>
@@ -78,7 +84,16 @@ function List<T extends object = {}>({ data, columns }: TableProps<T>): JSX.Elem
             && page.map(row => {
               prepareRow(row);
               return (
-                <div className={styles['tr']} {...row.getRowProps()}>
+                <div
+                  className={styles['tr']}
+                  {...row.getRowProps()}
+                  onKeyDown={() => {}}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => {
+                    handlerClickRow(row.cells[0].value);
+                  }}
+                >
                   {row.cells.map(cell => (
                     <div className={styles['td']} {...cell.getCellProps()}>
                       {cell.render('Cell')}
