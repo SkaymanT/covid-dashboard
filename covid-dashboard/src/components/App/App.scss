@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+$height: 900px;
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.covid {
+  display: flex;
+  justify-content: space-between;
+  min-height: calc(100vh - 50px);
+
+  @media (max-width: $height) {
+    flex-direction: column;
+  }
+}
+
+.list-container {
+  width: 100%;
+  flex: 0 0 5vw;
+}
+
+.map-container {
+  width: 100%;
+  flex: 1;
+  @media (max-width: $height) {
+    height: 450px;
+  }
+}
+
+.table-container {
+  width: 100%;
+  flex: 0 0 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+}
