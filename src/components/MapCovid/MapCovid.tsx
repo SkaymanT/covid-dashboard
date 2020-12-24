@@ -73,7 +73,9 @@ const MapCovid = (): JSX.Element => {
               const cases = Number(e.features![0].properties!.cases);
               const deaths = Number(e.features![0].properties!.deaths);
               const country = String(e.features![0].properties!.country);
+              const recovered = String(e.features![0].properties!.recovered);
               const iso = String(e.features![0].properties!.iso);
+
               map.getCanvas().style.cursor = 'pointer';
               if (
                 e.features![0].geometry.type === 'Point'
@@ -85,6 +87,7 @@ const MapCovid = (): JSX.Element => {
                 const HTML = `<p>Country: <b>${country}</b></p>
                     <p>Cases: <b>${cases}</b></p>
                     <p>Deaths: <b>${deaths}</b></p>
+                    <p>Recovered: <b>${recovered}</b></p>
                     <p>Mortality Rate: <b>${mortalityRate}%</b></p>
                     ${countryFlagHTML}`;
                 while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -104,6 +107,7 @@ const MapCovid = (): JSX.Element => {
                 const HTML = `<p>Country: <b>${country}</b></p>
                     <p>Cases Today: <b>${cases}</b></p>
                     <p>Deaths Today: <b>${deaths}</b></p>
+                    <p>Recovered Today: <b>${recovered}</b></p>
                     <p>Mortality Rate: <b>${mortalityRate}%</b></p>
                     ${countryFlagHTML}`;
                 while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -123,6 +127,7 @@ const MapCovid = (): JSX.Element => {
                 const HTML = `<p>Country: <b>${country}</b></p>
                     <p>Cases on 100.000: <b>${cases}</b></p>
                     <p>Deaths on 100.000: <b>${deaths}</b></p>
+                    <p>Recovered on 100.000: <b>${recovered}</b></p>
                     <p>Mortality Rate: <b>${mortalityRate}%</b></p>
                     ${countryFlagHTML}`;
                 while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
