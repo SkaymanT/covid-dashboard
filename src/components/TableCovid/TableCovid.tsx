@@ -193,6 +193,7 @@ const tableColumns2 = [
 const TableCovid = (): JSX.Element => {
   const [stateList, setStateList] = useState<TestData[]>([]);
   const [stateTest, setStateTest] = useState(0);
+  const [stateIsLoaded, setStateIsLoaded] = useState(false);
   const [stateHeader, setStateHeader] = useState(tableColumns);
 
   const dataBefore = useCovidMapService();
@@ -213,6 +214,7 @@ const TableCovid = (): JSX.Element => {
 
   useEffect(() => {
     if (dataBefore.status === 'loaded') {
+      setStateIsLoaded(true);
       let obj: TestData[] = [];
       for (let i = 0; i < dataBefore.data.length; i += 1) {
         const newobj: TestData[] = [
@@ -277,7 +279,16 @@ const TableCovid = (): JSX.Element => {
       }
       setStateList(obj);
     }
+    if (dataBefore.status === 'loading') {
+      setStateIsLoaded(false);
+    }
   }, [dataBefore, stateTest, context]);
+
+  const table = stateIsLoaded ? (
+    <Table<TestData> columns={stateHeader} data={stateList} />
+  ) : (
+    <div>Loading...</div>
+  );
 
   return (
     <ComponentLayout>
@@ -305,7 +316,7 @@ const TableCovid = (): JSX.Element => {
             Recovered
           </button>
         </div>
-        <Table<TestData> columns={stateHeader} data={stateList} />
+        {table}
       </div>
     </ComponentLayout>
   );
