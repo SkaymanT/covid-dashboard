@@ -12,7 +12,6 @@ const Chart = (): JSX.Element => {
   const [typeOfChart, setTypeOfChart] = useState({});
   const [stateActiveGraph, setStateActiveGraph] = useState(3);
   const cnt = useStateApp();
-
   function transformDate(date: string): string {
     const options = {
       day: 'numeric',
@@ -191,7 +190,7 @@ const Chart = (): JSX.Element => {
     );
   }
 
-  return (
+  const table = Object.keys(chartData).length !== 0 ? (
     <React.Fragment>
       <h1>Covid-cases</h1>
       <div className={styles['nav-bar-wrapper']}>
@@ -228,12 +227,17 @@ const Chart = (): JSX.Element => {
       </div>
       <div className={styles['graph-container']}>
         <div className={styles['graph-pie']}>
+          {Object.keys(chartData).length === 0}
           {typeOfChart['typeChart'] === 'pie' && <Pies />}
           {typeOfChart['typeChart'] === 'line' && <Lines />}
         </div>
       </div>
     </React.Fragment>
+  ) : (
+    <div>Loading...</div>
   );
+
+  return <React.Fragment>{table}</React.Fragment>;
 };
 
 export default Chart;
