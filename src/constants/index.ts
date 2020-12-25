@@ -1,4 +1,4 @@
-import { ICategory } from '@/types/Covid';
+import { ICategory, ILegend } from '@/types/Covid';
 
 const mapBoxToken = 'pk.eyJ1Ijoic2theW1hbnQiLCJhIjoiY2tiMGc2dGJhMDdzajJ4bWVtcnFrdHI5ZyJ9.JVI3u1rZALDoFrEjvcwZcg';
 
@@ -159,6 +159,33 @@ const layers: mapboxgl.AnyLayer[] = [
   },
 ];
 
+const legends: ILegend[][] = [
+  [
+    { color: '#fed976', text: '< 10000' },
+    { color: '#feb24c', text: '< 50000' },
+    { color: '#fd8d3c', text: '< 100000' },
+    { color: '#fc4e2a', text: '< 250000' },
+    { color: '#e31a1c', text: '< 500000' },
+    { color: '#b10026', text: '> 2000000' },
+  ],
+  [
+    { color: '#fed976', text: '10000' },
+    { color: '#feb24c', text: '50000' },
+    { color: '#fd8d3c', text: '100000' },
+    { color: '#fc4e2a', text: '250000' },
+    { color: '#e31a1c', text: '500000' },
+    { color: '#b10026', text: '20000000' },
+  ],
+  [
+    { color: '#fed976', text: '10000' },
+    { color: '#feb24c', text: '50000' },
+    { color: '#fd8d3c', text: '100000' },
+    { color: '#fc4e2a', text: '250000' },
+    { color: '#e31a1c', text: '500000' },
+    { color: '#b10026', text: '20000000' },
+  ],
+];
+
 export {
-  mapBoxToken, coronaUrl, layers, categories, categoriesTable,
+  mapBoxToken, coronaUrl, layers, categories, categoriesTable, legends,
 };

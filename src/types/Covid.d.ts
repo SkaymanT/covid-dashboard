@@ -34,6 +34,10 @@ export interface ICountryInfo {
   long: number;
   flag: string;
 }
+export interface ILegend {
+  color: string;
+  text: string;
+}
 
 export interface ICategory {
   name: string;

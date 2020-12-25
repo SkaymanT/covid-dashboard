@@ -5,10 +5,12 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import styles from '@/components/MapCovid/MapCovid.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { mapBoxToken, layers, categories } from '@/constants';
+import {
+  mapBoxToken, layers, categories, legends,
+} from '@/constants';
 import { useStateApp } from '@/context/appContext';
 import { useCovidMapService } from '@/services';
-import { ICovid } from '@/types/Covid';
+import { ICovid, ILegend } from '@/types/Covid';
 import convertCovidToMapCovids from '@/utils';
 
 import ComponentLayout from '../layout';
@@ -22,6 +24,7 @@ const MapCovid = (): JSX.Element => {
   const context = useStateApp();
   const [expandMap, setExpandMap] = useState(false);
   const [stateLatLongCountry, setStateLatLongCountry] = useState([10, 40]);
+  const [legend, setLegend] = useState<ILegend[]>(legends[0]);
   const [stateCategories, setStateCategories] = useState(categories);
   const handlerClickExpand = () => {
     setExpandMap(prev => !prev);
@@ -183,6 +186,7 @@ const MapCovid = (): JSX.Element => {
       </div>
       <MenuMap
         categories={stateCategories}
+        legend={legend}
         onChange={e => {
           setStateCategories(
             stateCategories.map((item, index) => {
@@ -192,6 +196,7 @@ const MapCovid = (): JSX.Element => {
               return { ...item, checked: false };
             })
           );
+          setLegend(legends[+e.target.value]);
         }}
       />
     </ComponentLayout>
